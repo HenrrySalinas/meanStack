@@ -1,0 +1,52 @@
+<h3>{{lblTitle}}</h3>
+ <form role="form" ng-submit="saveEvent()" name="form">
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label for="titulo">Titulo:</label>
+      <input type="text" class="form-control" id="titulo" ng-model="Evento.titulo">
+    </div>
+    <div class="form-group col-md-3">
+    <label for="fecha">Fecha:</label>
+      <input type="date" class="form-control" id="fecha" ng-model="Evento.fecha">
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="form-group col-md-6">
+          <label for="archivosEvento" >Imagen:</label>
+          <input type="file" class="form-control" ngf-select ng-model="archivosEvento" ngf-multiple="true"  name="archivosEvento"/>
+      </div>
+  </div>
+  Imagenes cargadas:
+  <div class="row">
+    <div ng-repeat="f in archivosEvento track by $index"  class="form-group col-md-2" style="overflow: hidden;">
+      <div ng-show="f.type.indexOf('image') > -1">    
+      <img ngf-src="f" class="thumb" ngf-resize="{width: 200, height: 200, quality: 0.9}" style="width:150px;height:150px;"><br><br>
+
+          <button class= "btn btn-warning btn-cancel" ng-disabled="!form.$valid" 
+              ng-click="quitarImagen($index)">Cancel</button> 
+
+          <br><br>
+          <p>{{f.name}}</p>
+          <br>
+          <span class="progress" ng-show="f.progress >= 0">
+            <div style="width:{{f.progress}}%" 
+                  ng-bind="f.progress + '%'"></div>
+          </span>
+          
+      </div>    
+    </div>
+  </div> 
+
+	<div class="form-group">
+		<label for="descripcion">Descripcion:</label>
+    	<!--<textarea id="descripcion" class="form-control" ng-model="Evento.descripcion" style="height:300px;"></textarea>-->
+      <textarea class="ck-editor" ng-model="Evento.descripcion"style="height:400px" ></textarea>
+  	</div>
+    
+
+  <button type="submit" class="btn btn-success">{{btnGuardar}}</button>
+  
+</form>
+
+    

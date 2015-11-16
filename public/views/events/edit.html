@@ -1,0 +1,34 @@
+<h3>{{lblTitle}}</h3>
+   <form role="form" ng-submit="updateEvent()">
+    <div class="form-group">
+    <label for="titulo">Titulo:</label>
+    <input type="text" class="form-control" id="titulo" ng-model="Evento.titulo">
+  </div>
+  	<div class="form-group">
+		<label for="fecha">Fecha:</label>
+    	<input type="text" class="form-control" id="fecha" value="{{Evento.fecha | date:'MM/dd/yyyy'}}" ng-model="Evento.fecha" >
+  	</div>
+	<div class="form-group">
+		<label for="descripcion">Descripcion:</label>
+    	<!--<textarea id="descripcion" class="form-control" ng-model="Evento.descripcion" style="height:300px;"></textarea>-->
+    	<textarea class="ck-editor" ng-model="Evento.descripcion"></textarea>
+  	</div>
+   	<div class="form-group">
+        <label for="imagen" class="col-md-2 control-label">Imagen:</label>
+        <div class="col-md-10">
+            <input type="file" name="imagen" 
+            class="form-control" ng-model="Evento.imagen" />
+        </div>
+    </div>
+  	<div class="form-group">
+        <label for="archivo" class="col-md-2 control-label">Archivo:</label>
+        <div class="col-md-10">
+            <input type="file" name="archivo" 
+            class="form-control" ng-model="Evento.archivo" />
+        </div>
+    </div>
+    <div class="row">
+        <button type="submit" class="btn btn-success">{{btnGuardar}}</button>
+    </div>
+  
+</form>

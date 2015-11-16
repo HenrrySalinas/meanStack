@@ -1,0 +1,45 @@
+EventosController = function() {};
+var fs = require('fs');
+util = require('util');
+var mongojs=require('mongojs');
+var db=mongojs('meandb',['eventos','multimedia']);
+EventosController.prototype.uploadFile = function(req, res) {
+    // We are able to access req.files.file thanks to 
+    // the multiparty middleware
+    var file = req.files.file;
+    //console.log(file.name);
+    //console.log(file.type); 
+    //console.log(file.path);
+    console.log(req.body.event_id);
+    var extencion=file.name.split('.').pop();
+    file.name=new Date().getTime();
+    var newName='event_'+file.name+'.'+extencion;
+
+    var tmp_path = file.path;
+    var carpeta='./uploads/eventsFiles/';
+
+    if (!fs.existsSync(carpeta)){
+        fs.mkdirSync(carpeta);
+    }
+
+    var target_path = carpeta + newName;
+    var archivo='uploads/eventsFiles/'+newName;
+	var source = fs.createReadStream(tmp_path)
+	var target = fs.createWriteStream(target_path);
+    
+    var documento={
+        event_id:req.body.event_id,
+        directorio:archivo
+    }
+    source.pipe(target);
+    source.on('end', function() { 
+
+        db.multimedia.insert(documento,function(err,doc){
+            res.json(doc);
+        });
+    });
+    source.on('error', function(err) { console.error(err.stack)});
+
+}
+
+module.exports = new EventosController();

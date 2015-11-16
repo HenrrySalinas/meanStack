@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="app" class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>mean</title>
+	<!--begin Mean app resources-->
+	<link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.min.css" >
+	<link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.min.css">
+
+	<!--end mean app resources-->
+	<!--begin theme resources-->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700">
+    <link rel="stylesheet" href="styles/vendor.css">
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link id="primary_color_scheme" rel="stylesheet" href="styles/theme_meadow.css">
+    <link rel="stylesheet" href="styles/themes_panel.css">
+    <script src="scripts/vendor/modernizr.js"></script>
+    <noscript>
+    <link rel="stylesheet" href="styles/styleNoJs.css">
+    </noscript> 
+	<!--end theme resources-->
+    
+</head>
+<body>
+
+	<div ui-view="header"></div>
+    <div ui-view="content"></div>
+    <div ui-view="footer"></div>
+	<!--begin Angular resources-->
+	<script type="text/javascript" src="assets/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="components/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="components/angular.min.js"></script>
+	<!--<script type="text/javascript" src="components/angular-route.min.js"></script> en lugar de este componente se usará angular-ui-route.min.js-->
+	<script type="text/javascript" src="components/angular-resource.min.js"></script>
+	<script type="text/javascript" src="components/ui-bootstrap-0.14.3.min.js"></script>
+	<script type="text/javascript" src="components/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="components/angular-animate.min.js"></script>
+	<script type="text/javascript" src="components/angular-sanitize.min.js"></script>
+	<script type="text/javascript" src="scripts/routes.js"></script>
+	<script type="text/javascript" src="scripts/controllers/indexController.js"></script>
+	<script type="text/javascript" src="scripts/controllers/eventosController.js"></script>
+
+	<script type="text/javascript" src="components/ckeditor/config.js"></script>
+	<script type="text/javascript" src="components/ckeditor/styles.js"></script>
+
+	<script type="text/javascript" src="components/ng-file-upload-shim.min.js"></script>
+	<script type="text/javascript" src="components/ng-file-upload.min.js"></script>
+	<script type="text/javascript" src="components/ng-file-upload-all.js"></script>
+	<script type="text/javascript" src="components/validate.js"></script>
+	<!--end Angular resources-->
+
+	<!--end Angular Resources-->
+</body>
+</html>

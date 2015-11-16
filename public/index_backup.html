@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>mean</title>
+	<link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.min.css" >
+	<link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.min.css">
+	<script type="text/javascript" src="assets/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div ui-view="header"></div>
+    <div ui-view="content"></div>
+    <div ui-view="footer"></div>
+    
+	<script type="text/javascript" src="components/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="components/angular.min.js"></script>
+	<!--<script type="text/javascript" src="components/angular-route.min.js"></script> en lugar de este componente se usará angular-ui-route.min.js-->
+	<script type="text/javascript" src="components/angular-resource.min.js"></script>
+	<script type="text/javascript" src="components/ui-bootstrap-0.14.3.min.js"></script>
+	<script type="text/javascript" src="components/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="components/angular-animate.min.js"></script>
+	<script type="text/javascript" src="components/angular-sanitize.min.js"></script>
+	<script type="text/javascript" src="scripts/routes.js"></script>
+	<script type="text/javascript" src="scripts/controllers/homeController.js"></script>
+	<script type="text/javascript" src="scripts/controllers/eventosController.js"></script>
+</body>
+</html>

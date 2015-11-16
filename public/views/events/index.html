@@ -1,0 +1,29 @@
+<h1>{{lblTitle}}</h1>
+ <a ui-sref="admin.eventsCreate" class="btn btn-success btn-block">Nuevo evento</a>
+<div class="row">
+	<table class="table">
+		<caption>evens list</caption>
+		<thead>
+			<tr>
+				<th>nro</th>
+				<th>nombre</th>
+				<th>fecha</th>
+				<th>descripcion</th>
+				<th class="col-md-3">gestión</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="(key, value) in events">
+				<td>{{key +1}}</td>
+				<td>{{value.titulo}}</td>
+				<td>{{value.fecha | date : "MM/dd/yyyy"}}</td>
+				<td>
+				<div ng-bind-html="value.descripcion"></div></td>
+				<td>
+					<a  ui-sref="admin.eventsUpdate({id:value._id})" class="btn btn-warning sm" >Editar</a>
+					<button class="btn btn-danger sm" ng-click="eliminarEvento(value._id)">Eliminar</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
