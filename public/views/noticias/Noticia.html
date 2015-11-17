@@ -1,0 +1,8 @@
+<div class="Form">
+<h1>NOTICIAS</h1>
+<ul><li ng-repeat="(key, value) in ListNoticia">
+<h3>{{value.Titulo}}</h3>
+<p>{{value.Fecha | date: 'dd-MM-yyyy'}}</p>
+<button class="btn btn-primary" ng-click="VerMas({{value._id}})"> Ver Más</button>
+</ul>
+</div>

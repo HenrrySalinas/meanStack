@@ -1,0 +1,51 @@
+
+<body ng-controller="Control">
+<div class="container" >
+<h1><center>Registrar Noticias</center></h1>
+<div class="Form">
+<table class="table">
+<tbody>
+<tr>
+<th><input type="text" class="form-control" ng-model="noticia.Titulo" placeholder="Titulo"> </th>
+<tr>
+<th><input  type="date" class="form-control"  ng-model="noticia.Fecha" placeholder="Fecha"> </th>
+<tr>
+<th><textarea class="ck-editor" ng-model="noticia.Contenido" style="height:400px"></textarea> </th>
+<tr>
+<th><button ng-hide="AddNoticias" class="btn btn-primary" ng-click="AddNoticia()">Añadir Noticia</button></th>
+<tr>
+<th><button ng-show="Actual" class="btn btn-info" ng-click="Actualizar()">Actualizar</button></th>
+</tr>
+</tbody>
+</div>
+<div>
+</table>
+<table class="table">
+<thead>
+<tr>
+<th>Titulo</th><th>Fecha</th>
+<th>Contenido</th><th>Acción</th><th>&nbsp;</th>
+</tr>    
+</thead>
+<tbody>
+<tr ng-repeat="noticia in ListNoticia">
+    <th>{{noticia.Titulo}}</th>
+    <th>{{noticia.Fecha | date: 'dd-MM-yyyy'}}</th>
+   	<th>
+   	<div ng-bind-html="noticia.Contenido"></div>
+   	</th>
+    <th><button class="btn btn-danger" ng-click="Eliminar(noticia._id)">Eliminar</button></th>
+    <th><button class="btn btn-warning" ng-click="editar(noticia._id)">Editar</button></th>
+</tr>    
+</tbody>
+</table>
+</div>
+</div>
+</body>
+<style>
+.Form {
+    max-width: 850px;
+    padding: 15px;
+    margin: 0 auto;
+}
+</style>

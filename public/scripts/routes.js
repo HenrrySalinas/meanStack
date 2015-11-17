@@ -1,14 +1,13 @@
 'use strict'
 angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload'])
 	.config(function($stateProvider, $urlRouterProvider) {
-		$urlRouterProvider.otherwise('/home');
+		$urlRouterProvider.otherwise('home');
 
+        $urlRouterProvider.when('', '/home');
 		$stateProvider
+
 			.state('home', {
-                //abstract: true,
             	url: '/home',
-            	//templateUrl: 'views/home/partial-home.html',
-                //controller:'homeCtrl',
                 views: {
                     'header' : { templateUrl: 'views/home/headerHome.html' },
                     'content': { 
@@ -19,7 +18,24 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload'])
                 }
                 
         	})
-            /*begin rutas de eventos*/
+            .state('admin',{
+                url:'^/admin',
+                views: {
+                    'header' : {  },
+                    'content': { 
+                        templateUrl: 'admin/index.html',
+                        controller:'adminCtrl' 
+                    },
+                    'footer' : {  }
+                }
+            })
+            .state('home.404',{
+                //url:'/404',
+                //url: '{path:.*}',
+                templateUrl:'views/home/404.html'
+
+            })
+            /*******************BEGIN EVENTS STATES************************/
         	.state('admin.events',{
         		url:'/events',
         		templateUrl:'views/events/index.html',
@@ -37,19 +53,19 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload'])
         		templateUrl:'views/events/edit.html',
 				controller:'updateEventCtrl'
         	})
-            /*end rutas de eventos*/
-            .state('admin',{
-                url:'/admin',
-                //templateUrl:'admin/index.html'
-                views: {
-                    //'header' : { templateUrl:'admin/admin-header.html' },
-                    'content': { 
-                        templateUrl: 'admin/index.html',
-                        controller:'adminCtrl' 
-                    },
-                    //'footer' : { templateUrl: 'views/home/footerHome.html' }
-                }
+            /********************END EVENTS STATES**************************/
+           /********************BEGIN NOTICIAS STATES***********************/
+           .state('admin.noticia',{
+                url:'/notias',
+                templateUrl:'views/noticias/create.html',
+                controller:'Control'
+            })
+            .state('home.mostrarnoticia',{
+                url:'/noticias',
+                templateUrl: 'views/noticias/Noticia.html',
+                controller:'VNoticia'
             });
+           /********************END   NOTICIAS STATES***********************/
             
 	});
 

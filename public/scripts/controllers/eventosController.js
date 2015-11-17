@@ -68,7 +68,7 @@ angular.module('app')
 	        });
     	};
     	$scope.quitarImagen = function(index) {
-        	$scope.ArchivosEvento.files[index] = undefined;
+        	$scope.archivosEvento.splice(index,1);//para eliminar un eliminarEventoento de un array
         	
       	}
 	})

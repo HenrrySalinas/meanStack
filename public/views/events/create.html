@@ -1,5 +1,13 @@
-<h3>{{lblTitle}}</h3>
- <form role="form" ng-submit="saveEvent()" name="form">
+<style type="text/css" media="screen">
+  form{
+    max-width: 850px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+</style>
+
+ <form role="form"  name="form">
+ <h3><b>{{lblTitle}}</b></h3>
   <div class="row">
     <div class="form-group col-md-6">
       <label for="titulo">Titulo:</label>
@@ -45,8 +53,8 @@
   	</div>
     
 
-  <button type="submit" class="btn btn-success">{{btnGuardar}}</button>
+  <button type="submit" class="btn btn-success" ng-click="saveEvent()">{{btnGuardar}}</button>
   
 </form>
 
-    
+    </div>
