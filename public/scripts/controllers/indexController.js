@@ -7,4 +7,10 @@ angular.module('app')
 	.controller('adminCtrl', function($scope,$http){
 
 		console.log('controlador admin');
-	});
+	})
+	.controller('loginCtrl', function($scope,$state){
+		$scope.login=function(){
+			$state.go('admin');
+		}
+	})
+	;

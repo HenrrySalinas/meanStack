@@ -1,18 +1,23 @@
 <!--begin admin theme resources-->
     <link href="admin/css/bootstrap.min.css" rel="stylesheet">
     <link href="admin/css/animate.min.css" rel="stylesheet">
+    
+    <!--
     <link href="admin/css/font-awesome.min.css" rel="stylesheet">
     <link href="admin/css/form.css" rel="stylesheet">
     <link href="admin/css/calendar.css" rel="stylesheet">
+    -->
     <link href="admin/css/style.css" rel="stylesheet">
     <link href="admin/css/icons.css" rel="stylesheet">
     <link href="admin/css/generics.css" rel="stylesheet"> 
     <!--end admin theme resources-->
+    
+
 <div id="skin-blur-violate">
 
         <div id="header" class="media">
-            <a href="" id="menu-toggle"></a> 
-            <a class="logo pull-left" href="index.html">ADMINISTRADOR</a>
+            <a ui-sref="admin" id="menu-toggle"></a> 
+            <a class="logo pull-left" ui-sref="admin">ADMINISTRADOR</a>
             
             <div class="media-body">
                 <div class="media" id="top-menu">
@@ -97,7 +102,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="sa-side-table" href="noticias.html">
+                        <a class="sa-side-table" ui-sref="admin.convocatorias">
                             <span class="menu-item">CONVOCATORIA</span>
                         </a>
                     </li>
@@ -125,7 +130,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="sa-side-chart" href="charts.html">
+                        <a class="sa-side-chart" ui-sref="admin.galeria">
                             <span class="menu-item">ALBUM-GALERIA</span>
                         </a>
                     </li>
@@ -134,10 +139,15 @@
                             <span class="menu-item">ARCHIVOS</span>
                         </a>
                     </li>
-                    <li>
+                     <li class="dropdown">
                         <a class="sa-side-calendar" ui-sref="admin.events">
                             <span class="menu-item">EVENTOS</span>
                         </a>
+                        <ul class="list-unstyled menu-item">
+                            <li><a ui-sref="admin.events">Lista de eventos</a></li>
+                            <li><a ui-sref="admin.eventsCreate">Crear Eventos</a></li>
+
+                        </ul>
                     </li>
                     <li class="dropdown">
                         <a class="sa-side-page" href="">

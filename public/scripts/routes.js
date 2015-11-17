@@ -35,6 +35,19 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload'])
                 templateUrl:'views/home/404.html'
 
             })
+            /*******************BEGIN LOGIN********************************/
+            .state('login',{
+                url:'^/login',
+                views:{
+                    'header':{},
+                    'content':{
+                        templateUrl:'views/login/index.html',
+                        controller:'loginCtrl'
+                    },
+                    'footer':{}
+                }
+            })
+            /*******************BEGIN LOGIN********************************/
             /*******************BEGIN EVENTS STATES************************/
         	.state('admin.events',{
         		url:'/events',
@@ -64,9 +77,23 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload'])
                 url:'/noticias',
                 templateUrl: 'views/noticias/Noticia.html',
                 controller:'VNoticia'
-            });
+            })
            /********************END   NOTICIAS STATES***********************/
+            /********************BEGIN CONVOCATORIAS***********************/
+           .state('admin.convocatorias',{
+                url:'/convocatorias',
+                templateUrl:'views/convocatorias/index.html',
+                //controller:'Control'
+            })
             
+           /********************END CONVOCATORIAS STATES***********************/
+           /********************BEGIN GALERIA***********************/
+            .state('admin.galeria',{
+                url:'/galeria',
+                templateUrl:'views/galeria/index.html',
+                //controller:'Control'
+            });
+            /********************BEGIN Galeria***********************/
 	});
 
 angular.module('app').directive('ckEditor', [function () {

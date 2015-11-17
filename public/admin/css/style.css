@@ -30,7 +30,8 @@ html, body {
 body {
     font-family: 'open-sans-light', sans-serif;
     font-size: 12px;
-    background-color: #0F4B80;
+    /*background-color: #0F4B80;*/
+    background-color: #106957;
 }
 
 .ie9 #sidebar {
