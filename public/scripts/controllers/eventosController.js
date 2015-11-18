@@ -30,8 +30,9 @@ angular.module('app')
 				$timeout(function(){
 					if ($scope.archivosEvento) {
 	        			$scope.uploadFiles($scope.archivosEvento,idLastEvent);
-	        		$state.go('admin.events'); //luego de 1segundo se redirecciona 
-	      			}	
+	        		
+	      			}
+	      			$state.go('admin.events'); //luego de 1segundo se redirecciona 	
 				},1000);
 				
 				
@@ -94,5 +95,18 @@ angular.module('app')
 		}
 		
 		
+	})
+	.controller('partialEventoCtrl', function($scope,$http,$state,$sce){
+		$http.get('/apiEvents').success(function(response){
+				$scope.listaEventos=response;
+			});
+		$scope.Limit = 5;
+		$scope.leerMas=function(id){
+				//$state.go('/:leerMas')
+		}
+	})
+	.controller('vistaEventoCtrl', function($scope,$http,$stateParams,$timeout,$state){
+		var id=$stateParams.id;
+		console.log('esta es la url que se ha solicitado'+id);
 	});
 

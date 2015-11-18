@@ -8,3 +8,6 @@
     padding: 15px;
     margin: 0 auto;
 }
+.eventCard:hover{
+	background-color: rgba(217, 217, 217, 0.4)
+}

@@ -1,12 +1,21 @@
-<div class="row">
-	<ul>
-		<li ng-repeat="(key, value) in listaEventos">
-			<a ui-srefs="" title="">
-				<h4>{{value.titulo | uppercase}}</h4>
-				{{value.fecha | date : "MM/dd/yyyy"}}
-				<!--<div ng-init="limit=150;"ng-bind-html="value.descripcion | limitTo:limit"></div>-->
-				<button class="btn btn-primary" ng-click="leerMas(value._id)">Leer Mas</button>
-			</a>
-		</li>
-	</ul>
+<div class="sep-bottom-2x">
+	<div class="container">
+		<h2 style="text-align:center">EVENTOS</h2>
+		<br>
+		<div class="row eventCard" ng-repeat="(key, value) in listaEventos">
+		<a ui-sref="home" title="{{value.titulo | lowercase}}">
+			<div class="span9">
+			    <h4>{{value.titulo | uppercase}}</h4>
+
+			    <div class="span5">
+			    <span class="label label-default">{{value.fecha | date : "MM/dd/yyyy"}}</span>
+						
+						<div  ng-bind-html="value.descripcion | limitTo: Limit "></div>
+						<button class="btn btn-primary btn-xs" ng-click="leerMas(value._id)">Leer Mas</button>
+					
+			    </div>
+			</div>
+		</a>	
+		</div>
+	</div>
 </div>

@@ -66,6 +66,16 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload'])
         		templateUrl:'views/events/edit.html',
 				controller:'updateEventCtrl'
         	})
+            .state('home.partialEvents',{
+                url:'/eventos',
+                templateUrl:'views/events/paginas/evento.html',
+                controller:'partialEventoCtrl'
+            })
+            .state('home.event',{
+                url:'/evento/:id',
+                templateUrl:'views/events/paginas/evento.html',
+                controller:'vistaEventoCtrl'
+            })
             /********************END EVENTS STATES**************************/
            /********************BEGIN NOTICIAS STATES***********************/
            .state('admin.noticia',{
