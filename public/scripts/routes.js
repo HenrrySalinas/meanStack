@@ -79,6 +79,15 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload'])
                 controller:'VNoticia'
             })
            /********************END   NOTICIAS STATES***********************/
+         /********************BEGIN CONTACTOS STATES***********************/
+        
+        .state('home.mostrarcontactos',{
+                url:'/contactos',
+                templateUrl: 'views/contactos/Contacto.html',
+                //controller:'VNoticia'
+            })
+        
+        /********************END   CONTACTOS STATES***********************/
             /********************BEGIN CONVOCATORIAS***********************/
            .state('admin.convocatorias',{
                 url:'/convocatorias',

@@ -1,0 +1,98 @@
+
+<section class="sep-bottom-2x" style="padding-top:3.5em">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 sep-top-2x">
+              <h4 class="upper">CONTACTESE CON NOSOTROS</h4>
+              <p class="sep-top-xs">
+                Estamos para atenderle: 
+              </p>
+              <div class="contact-form">
+                
+                <form id="contactForm" action="php/contact.php" method="post" class="form-gray-fields validate">
+                  <div class="row">
+                    <div class="col-md-6 sep-top-xs">
+                      <div class="form-group">
+                        <label for="name">Su nombre:</label>
+                        <input id="name" type="text" placeholder="Ingrese su nombre" name="senderName" class="form-control input-lg required">
+                      </div>
+                    </div>
+                    <div class="col-md-6 sep-top-xs">
+                      <div class="form-group">
+                        <label for="email">Su correo:</label>
+                        <input id="email" type="email" placeholder="Ingrese su correo" name="senderEmail" class="form-control input-lg required email">
+                      </div>
+                    </div>
+                  </div>
+               <!--   <div class="row">
+                    <div class="col-md-6 sep-top-xs">
+                      <div class="form-group">
+                        <label for="phone">Your Phone</label>
+                        <input id="phone" type="text" placeholder="Enter phone" name="phone" class="form-control input-lg required">
+                      </div>
+                    </div>
+                    <div class="col-md-6 sep-top-xs">
+                      <div class="form-group">
+                        <label for="phone">Your Company</label>
+                        <input id="company" type="text" placeholder="Enter company" name="company" class="form-control input-lg required">
+                      </div>
+                    </div>
+                  </div>-->
+                  <div class="row">
+                    <div class="col-md-12 sep-top-xs">
+                      <div class="form-group">
+                        <label for="comment">Comentarios o Sugerencias:</label>
+                        <textarea id="comment" placeholder="Ingrese su comentario o sugerencia" rows="9" name="comment" class="form-control input-lg required"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 sep-top-xs">
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i>&nbsp;Enviar Mensaje</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-md-6 sep-top-2x">
+              <h4 class="upper">Gobierno Autonomo Municipal de Chimore</h4>
+              <p class="sep-top-xs">
+                Nos ubicamos frente del mercado Central de Chimore.
+              </p>
+              <div class="sep-top-xs">
+                <div id="map-canvas" style="height:500px">
+                  <script>
+                    var
+                      lat = -16.99525969999999,
+                      lon = -65.15215369999999,
+                      infoText = [
+                        '<div style="white-space:nowrap">',
+                          '<h5>GOBIERNO AUTONOMO DE CHIMORE</h5>',
+                          'Chimore Bolivia',
+                          'Atencion 8:00 a 12:30 & 14:30 a 18:30 ',
+                          'BOLIVIA',
+                        '</div>'
+                      ],
+                      mapOptions = {
+                        scrollwheel: false,
+                        markers: [
+                          { latitude: lat, longitude: lon, html: infoText.join('') }
+                        ],
+                        icon: {
+                          image: 'img/themes/meadow/marker.png',
+                          iconsize: [72, 65],
+                          iconanchor: [12, 65],
+                        },
+                        latitude: lat,
+                        longitude: lon,
+                        zoom: 20
+                      };
+                  </script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>

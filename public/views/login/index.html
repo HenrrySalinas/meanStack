@@ -1,21 +1,26 @@
 
-<div id="container">
-  <form ng-submit="login(item)">
-    <div class="login">LOGIN</div>
-    <div class="username-text">Usuario:</div>
-    <div class="password-text">Contraseña:</div>
+<div id="container" style="margin-top:200px">
+  <form ng-submit="login(item)" style="border-radius:10px; border:5px solid green; width:500px; margin:0 auto; padding:20px; box-shadow:2px 5px 2px"  >
+    <div class="login" style="text-align:center"><h4>LOGIN</h4></div>
+      <div style="margin-left:140px;">
+    
+    <div class="username-text"><h6>Usuario:</h6></div>
     <div class="username-field">
-      <input type="text" name="username" ng-model="item.email" value="sysadmin">
-    </div>
+      <input type="text" name="username" ng-model="item.email" value="sysadmin" style="border-radius:5px;box-shadow: 2px 2px 5px;">
+    </div>  
+    <div class="password-text"><h6>Contraseña:</h6></div>
     <div class="password-field">
-      <input type="password" name="password" ng-model="item.password" value="">
+      <input type="password" name="password" ng-model="item.password" value="" style="border-radius:5px;box-shadow: 2px 2px 5px;">
     </div>
-    <input type="checkbox" name="remember-me" id="remember-me">
-    <label for="remember-me">Recordar</label>
-    <div class="forgot-usr-pwd">
+     <br>
+      <input type="checkbox" name="remember-me" id="remember-me">
+     
+    <label for="remember-me"><small>Recordar</small></label>
+    <div class="forgot-usr-pwd"><small>
       Olvidaste tu <a href="#">usuario</a> o <a href="#">contraseña</a>?
-    </div>
-    <input type="submit" name="submit" value="IR">
+    </small></div>
+    <input type="submit" name="submit" value="IR" class="btn btn-success">
+          </div>
   </form>
 </div>
 
