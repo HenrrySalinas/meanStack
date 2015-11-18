@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="jumbotron">
+		<div class="row">
+		<center><h3>{{Evento.titulo | uppercase}}</h3></center>
+				<span class="label label-default">{{Evento.fecha | date : "MM/dd/yyyy"}}</span>
+				<br><br>
+				
+				<div class="lead" ng-bind-html="Evento.descripcion"></div>
+		</div>		
+	</div>
+</div>
+

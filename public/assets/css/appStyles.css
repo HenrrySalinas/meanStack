@@ -8,6 +8,13 @@
     padding: 15px;
     margin: 0 auto;
 }
+.eventCard{
+	background-color: rgba(247, 247, 247, 0.5);
+	margin-top: 5px;
+	margin-bottom:  5px;
+	transition: all 0.3s ease;
+}
 .eventCard:hover{
-	background-color: rgba(217, 217, 217, 0.4)
+	background-color: rgba(217, 217, 217, 0.4);
+
 }

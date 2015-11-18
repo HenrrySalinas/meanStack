@@ -73,7 +73,7 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload'])
             })
             .state('home.event',{
                 url:'/evento/:id',
-                templateUrl:'views/events/paginas/evento.html',
+                templateUrl:'views/events/paginas/A_event.html',
                 controller:'vistaEventoCtrl'
             })
             /********************END EVENTS STATES**************************/

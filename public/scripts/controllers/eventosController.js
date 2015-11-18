@@ -8,7 +8,7 @@ angular.module('app')
 		};
 		refresh();
 		$scope.eliminarEvento=function(id){
-			console.log(id);
+			
 			$http.delete('/apiEvents/'+id).success(function(response){
 				refresh();
 			});
@@ -79,7 +79,7 @@ angular.module('app')
 		$scope.btnGuardar="Actualizar";
 		$scope.btnAtras="Atras";
 		$http.get('/apiEvents/'+id).success(function(response){
-			console.log(response);
+			
 			$scope.Evento=response;
 		});
 		$scope.updateEvent=function(){
@@ -100,13 +100,17 @@ angular.module('app')
 		$http.get('/apiEvents').success(function(response){
 				$scope.listaEventos=response;
 			});
-		$scope.Limit = 5;
+		$scope.Limit = 100;
 		$scope.leerMas=function(id){
 				//$state.go('/:leerMas')
 		}
 	})
 	.controller('vistaEventoCtrl', function($scope,$http,$stateParams,$timeout,$state){
 		var id=$stateParams.id;
-		console.log('esta es la url que se ha solicitado'+id);
+		
+		$http.get('/apiEvents/'+id).success(function(response){
+			
+			$scope.Evento=response;
+		});
 	});
 
