@@ -2,7 +2,7 @@
 
 
   <div id="load"></div><!--[if lt IE 9]>
-    <p class="browsehappy">You are using an strong outdated browser. <br>Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <p class="browsehappy">You are using an strong outdated browser. <br>Please <a ui-sref="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class="page">
       <!-- Start Nav Section-->
@@ -14,13 +14,13 @@
                   <button type="submit" class="btn btn-sm"></button></span>
                 <input type="text" placeholder="BUSCAR EN ESTE SITIO" class="form-control">
               </div>
-              <div class="h_search_close"><a href="#"></a></div>
+              <div class="h_search_close"><a ui-sref="#"></a></div>
             </div>
           </div>
         </form>
         <div class="container">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle"><i class="fa fa-align-justify fa-lg"></i></button><a href="#" class="navbar-brand"><img src="img/logo.png" alt="" class="logo-white"><img src="img/logo1.png" alt="" class="logo-dark"></a>
+            <button type="button" class="navbar-toggle"><i class="fa fa-align-justify fa-lg"></i></button><a ui-sref="#" class="navbar-brand"><img src="img/logo.png" alt="" class="logo-white"><img src="img/logo1.png" alt="" class="logo-dark"></a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right service-nav">
@@ -42,7 +42,7 @@
                           <input type="checkbox"><small> Remember me</small>
                         </label>-->
                       </div>
-                    </div><a href="#"><small>¿Olvidó su contraseña?</small></a>
+                    </div><a ui-sref="home"><small>¿Olvidó su contraseña?</small></a>
                   </form>
                 </div>
               </li>
@@ -55,25 +55,25 @@
                       
                     </li>
                     <!-- istanzio un id univoco-->
-                <li class="dropdown"><a href="#" title="Home" data-toggle="dropdown" data-hover="dropdown" id="menu_item_Home" data-ref="#" class="dropdown-toggle">ACERCA DE NOSOTROS<span class="caret"></span></a>
+                <li class="dropdown"><a ui-sref="home" title="Home" data-toggle="dropdown" data-hover="dropdown" id="menu_item_Home" data-ref="#" class="dropdown-toggle">ACERCA DE NOSOTROS<span class="caret"></span></a>
                       
                     </li>
-                <li class="dropdown"><a href="#" title="Home" data-toggle="dropdown" data-hover="dropdown" id="menu_item_Home" data-ref="#" class="dropdown-toggle">SERVICIOS<span class="caret"></span></a>
+                <li class="dropdown"><a ui-sref="home" title="Home" data-toggle="dropdown" data-hover="dropdown" id="menu_item_Home" data-ref="#" class="dropdown-toggle">SERVICIOS<span class="caret"></span></a>
                       
                     </li>
-                    <li class="dropdown"><a href="#" title="Portfolio" data-toggle="dropdown" data-hover="dropdown" id="menu_item_Portfolio" data-ref="#" class="dropdown-toggle">GALERIA<span class="caret"></span></a>
+                    <li class="dropdown"><a ui-sref="home" title="Portfolio" data-toggle="dropdown" data-hover="dropdown" id="menu_item_Portfolio" data-ref="#" class="dropdown-toggle">GALERIA<span class="caret"></span></a>
                       <ul aria-labelledby="menu_item_Portfolio" class="dropdown-menu">
-                          <li><a href="portfolio-3.html" title="Masonry" data-ref="portfolio">GALERIA</a></li>
-                             <li><a href="#" title="Masonry" data-ref="portfolio">VIDEOS</a></li>
+                          <li><a ui-sref="home" title="Masonry" data-ref="portfolio">GALERIA</a></li>
+                             <li><a ui-sref="home" title="Masonry" data-ref="portfolio">VIDEOS</a></li>
                             
                       </ul>
                     </li>
                     <!-- istanzio un id univoco-->
-                    <li class="dropdown"><a href="#" title="Shop" data-toggle="dropdown" data-hover="dropdown" id="menu_item_Shop" data-ref="#" class="dropdown-toggle">NOTICIAS<span class="caret"></span></a>
+                    <li class="dropdown"><a ui-sref="home" title="Shop" data-toggle="dropdown" data-hover="dropdown" id="menu_item_Shop" data-ref="#" class="dropdown-toggle">NOTICIAS<span class="caret"></span></a>
                             <ul aria-labelledby="menu_item_Shop" class="dropdown-menu">
                               <li><a ui-sref="home.mostrarnoticia" title="noticias">NOTICIASX</a></li>
-                                <li><a ui-sref="#" data-ref="portfolio">CALENDARIO</a></li>
-                                <li><a ui-sref="#" title="Masonry" data-ref="portfolio">CONVOCATORIAS</a></li>
+                                <li><a ui-sref="home" data-ref="portfolio">CALENDARIO</a></li>
+                                <li><a ui-sref="home" title="Masonry" data-ref="portfolio">CONVOCATORIAS</a></li>
                                 
                             </ul>
                     </li>
@@ -81,16 +81,8 @@
                     
                     
                     <!-- istanzio un id univoco-->
-                    <li class="dropdown"><a href="features-grid.html" title="Features" data-toggle="dropdown" data-hover="dropdown" id="menu_item_features-grid" data-ref="features-grid" class="dropdown-toggle">HERRAMIENTAS<span class="caret"></span></a>
-                      <ul aria-labelledby="menu_item_features-grid" class="dropdown-menu">
-                            
-                              <!-- istanzio un id univoco-->
-                              <li><a href="features-typography.html" title="Typography" data-ref="features-typography">Letras</a></li>
-                              <!-- istanzio un id univoco-->
-                              <li><a href="features-buttons.html" title="Buttons" data-ref="features-buttons">Botones</a></li>
-                              <!-- istanzio un id univoco-->
-                             
-                      </ul>
+                    <li class="dropdown"><a ui-sref="home" title="Features" data-toggle="dropdown" data-hover="dropdown" id="menu_item_features-grid" data-ref="features-grid" class="dropdown-toggle">EVENTOS<span class="caret"></span></a>
+
                     </li>
                     <!-- istanzio un id univoco-->
                     <li><a ui-sref="home.mostrarcontactos" title="ContactOS" id="menu_item_Contactus" data-ref="contact-us-3.html" >CONTACTOS<span class="caret"></span></a>
