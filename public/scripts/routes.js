@@ -88,16 +88,16 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload'])
                 templateUrl: 'views/noticias/Noticia.html',
                 controller:'VNoticia'
             })
-           /********************END   NOTICIAS STATES***********************/
-         /********************BEGIN CONTACTOS STATES***********************/
+            /********************END   NOTICIAS STATES***********************/
+            /********************BEGIN CONTACTOS STATES***********************/
         
-        .state('home.mostrarcontactos',{
+            .state('home.mostrarcontactos',{
                 url:'/contactos',
                 templateUrl: 'views/contactos/Contacto.html',
                 //controller:'VNoticia'
             })
         
-        /********************END   CONTACTOS STATES***********************/
+            /********************END   CONTACTOS STATES***********************/
             /********************BEGIN CONVOCATORIAS***********************/
            .state('admin.convocatorias',{
                 url:'/convocatorias',
@@ -105,14 +105,14 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload'])
                 //controller:'Control'
             })
             
-           /********************END CONVOCATORIAS STATES***********************/
-           /********************BEGIN GALERIA***********************/
+            /********************END CONVOCATORIAS STATES***********************/
+            /********************BEGIN GALERIA***********************/
             .state('admin.galeria',{
                 url:'/galeria',
-                templateUrl:'views/galeria/index.html',
-                //controller:'Control'
+                templateUrl:'views/galeria/indexAdmin.html',
+                controller:'galleryCtrl'
             });
-            /********************BEGIN Galeria***********************/
+            /********************END Galeria***********************/
 	});
 
 angular.module('app').directive('ckEditor', [function () {

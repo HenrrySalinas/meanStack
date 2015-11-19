@@ -12,10 +12,12 @@ eventsController = require('./controllers/eventosControllerServer');
 /***************************end libs para carga de archivos*********************/
 
 app.use(express.static(__dirname+'/public'));
+app.use("/uploads", express.static(__dirname + '/uploads'));
 app.use(bodyParser.json());
 
 /**************************begin eventos section********************************/
 var eventRoutes = require('./routes/eventService')(app,db,mongojs);
+
 app.post('/apiEvents/uploads', multipartMiddleware, eventsController.uploadFile);
 
 /**************************end eventos section*********************************/
@@ -67,5 +69,10 @@ var id= req.params.id;
 })
 
 /***************************end noticias section********************************/
+
+/**************************begin gallery section********************************/
+var galleryRoutes = require('./routes/galleryService')(app,db,mongojs);
+
+/**************************end gallery section*********************************/
 app.listen(3000);
 console.log('server runing ... port 3000');
