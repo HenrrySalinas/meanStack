@@ -89,6 +89,13 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload','ngT
                 controller:'VNoticia'
             })
             /********************END   NOTICIAS STATES***********************/
+             /********************VIEW NOTICIAS****************///function
+           .state('home.verNoticia',{
+                url:'/vernoticia/:id',
+                templateUrl:'views/noticias/VerNoticia.html',
+                controller:'VerMasNoticia'
+            })
+           //*******************END VIEW NOTICIAS*************//
             /********************BEGIN CONTACTOS STATES***********************/
         
             .state('home.mostrarcontactos',{

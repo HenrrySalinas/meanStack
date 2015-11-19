@@ -56,9 +56,12 @@ $http.get('/api/NoticiaList').success(function(response){
 });
 };
 actualizar();
-
-$scope.VerMas = function()
-{
-
-}
 })
+.controller('VerMasNoticia', function($scope,$http,$stateParams,$location,$timeout,$state){
+        var id=$stateParams.id;
+        console.log("Hola");
+        $http.get('/api/NoticiaList/'+id).success(function(response){
+               console.log(response);
+$scope.Noticia= response;   
+});
+    });

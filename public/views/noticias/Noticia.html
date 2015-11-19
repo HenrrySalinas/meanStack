@@ -1,8 +1,4 @@
-
-
-
-
-
+<ul>
 <div class="sep-bottom-2x">
         <div class="container">
             <h2 style="text-align:center">NOTICIAS</h2>
@@ -12,12 +8,10 @@
           <article id="post-0" class="sep-top-lg">
             <div class="row">
               
-
-
               <div role="contentinfo" class="col-md-3 sep-top-xs">
                 <footer class="author-info"><a href="#" itemprop="author" class="post-author-link"><img src="img/team/square/1.jpg" alt="Michelle White" style="width:72px; height:72px;" class="img-circle img-responsive"></a>
                   <div class="author-info-content">
-                    <h6 class="author-name">Michelle White</h6>
+                    <h6 class="author-name">{{value.Autor}}</h6>
                     <time class="small">{{value.Fecha | date: 'dd-MM-yyyy'}}</time>
                   </div>
                 </footer>
@@ -31,10 +25,10 @@
                 
                 <div class="post-image sep-top-md"><a title="" href="#"><img alt="" src="img/afiche1.jpg" itemprop="thumbnailUrl" class="img-responsive"></a></div>
                 <div itemprop="articleBody" class="post-text sep-top-md">
-                 <p style="color:black">{{value.Contenido}}</p>
+                 <p style="color:black"><div class="lead" ng-bind-html="value.Contenido"></p>
                   
                 </div>
-                <div class="post-more sep-top-md"><button class="btn btn-primary btn-large" ng-click="VerMas({{value._id}})"> Ver Más</button></div>
+                <div class="post-more sep-top-md"><button class="btn btn-primary" ui-sref="home.verNoticia({id:value._id})"> Ver Más</button></div>
               </div>
             
                     
@@ -46,56 +40,5 @@
             
             </ul>
            
-          <!-- End Post-->
-          <!-- start pagination-->
-          <div class="sep-top-2x">
-            <!-- start pagination-->
-            <ul class="pager">
-              <li class="previous hidden-xs"><a href="#"><i class="fa fa-arrow-left"></i>&nbsp;Atras</a></li>
-              <li><a href="#">1</a></li>
-              <li><span class="current">2</span></li>
-              <li><a href="#">3</a></li>
-              <li class="next disabled hidden-xs"><a href="#">Siguiente&nbsp;<i class="fa fa-arrow-right"></i></a></li>
-            </ul>
-            <!-- end pagination-->
-          </div>
-          <!-- end pagination-->
         </div>
       </div>
-
-
-<aside id="sidebar" role="complementary" class="col-md-3 col-md-pull-9 sep-top-md sidebar">
-              <!-- start sidebar-->
-              <h5 class="widget-title upper sep-bottom-xs">Recent Posts</h5>
-              <ul class="widget widget-media rounded sep-bottom-lg">
-                <li class="media media-bordered clearfix"><a href="#" class="pull-left"><img src="img/blog1-t.jpg" alt="" class="media-object img-circle"></a>
-                  <div class="media-body">
-                    <h6 class="media-heading"><a href="#">Blanditiis Praesentium</a></h6><small>November 28, 2013</small>
-                  </div>
-                </li>
-                <li class="media media-bordered clearfix"><a href="#" class="pull-left"><img src="img/blog2-t.jpg" alt="" class="media-object img-circle"></a>
-                  <div class="media-body">
-                    <h6 class="media-heading"><a href="#">Videos can help promote</a></h6><small>November 28, 2013</small>
-                  </div>
-                </li>
-                <li class="media media-bordered clearfix"><a href="#" class="pull-left"><img src="img/blog4-t.jpg" alt="" class="media-object img-circle"></a>
-                  <div class="media-body">
-                    <h6 class="media-heading"><a href="#">Fermentum Hendrerit Libero</a></h6><small>November 28, 2013</small>
-                  </div>
-                </li>
-                <li class="media media-bordered clearfix"><a href="#" class="pull-left"><img src="img/blog5-t.jpg" alt="" class="media-object img-circle"></a>
-                  <div class="media-body">
-                    <h6 class="media-heading"><a href="#">Saepe Eveniet Voluptates</a></h6><small>November 28, 2013</small>
-                  </div>
-                </li>
-              </ul>
-              <h5 class="widget-title upper sep-bottom-xs">Categories</h5>
-              <ul class="widget widget-cat">
-                <li class="cat-item"><a href="#" class="upper">Audio&nbsp;<span class="badge">15</span></a></li>
-                <li class="cat-item"><a href="#" class="upper">Beautiful&nbsp;<span class="badge">15</span></a></li>
-                <li class="cat-item"><a href="#" class="upper">Brand&nbsp;<span class="badge">7</span></a></li>
-                <li class="cat-item"><a href="#" class="upper">Carousel&nbsp;<span class="badge">4</span></a></li>
-                <li class="cat-item"><a href="#" class="upper">Creative&nbsp;<span class="badge">11</span></a></li>
-              </ul>
-              <!-- end sidebar-->
-            </aside>

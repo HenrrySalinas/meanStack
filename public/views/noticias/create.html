@@ -8,7 +8,10 @@
 <tr>
 <th><input type="text" class="form-control" ng-model="noticia.Titulo" placeholder="Titulo"> </th>
 <tr>
-<th><input  type="date" class="form-control"  ng-model="noticia.Fecha" placeholder="Fecha"> </th>
+<th><label for="fecha">Fecha Publicacion:</label><input  type="date" class="form-control"  ng-model="noticia.Fecha" placeholder="Fecha"> </th>
+<tr>
+<tr>
+<th><label for="Autor">Autor:</label><input  type="text" class="form-control"  ng-model="noticia.Autor" placeholder="Autor"> </th>
 <tr>
 <th><textarea class="ck-editor" ng-model="noticia.Contenido" style="height:400px"></textarea> </th>
 <tr>
@@ -23,7 +26,7 @@
 <table class="table">
 <thead>
 <tr>
-<th>Titulo</th><th>Fecha</th>
+<th>Titulo</th><th>Fecha Publicacion</th><th>Autor</th>
 <th>Contenido</th><th>Acción</th><th>&nbsp;</th>
 </tr>    
 </thead>
@@ -31,6 +34,7 @@
 <tr ng-repeat="noticia in ListNoticia">
     <th>{{noticia.Titulo}}</th>
     <th>{{noticia.Fecha | date: 'dd-MM-yyyy'}}</th>
+    <th>{{noticia.Autor}}</th>
    	<th>
    	<div ng-bind-html="noticia.Contenido"></div>
    	</th>
