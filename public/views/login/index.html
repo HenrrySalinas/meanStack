@@ -1,5 +1,45 @@
+<link rel="stylesheet" href="styles/login.css">
 
-<div id="container" style="margin-top:200px">
+<script type="text/javascript" src="assets/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="styles/bootstrap.css">
+
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true" ng-submit="login(item)">
+  <div class="modal-dialog">
+  <div class="modal-content" id="modal">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h1 class="text-center" STYLE="COLOR:WHITE; TEXT-SHADOW:2PX 2PX 2PX #000">INICIAR SESIÓN</h1>
+      </div>
+      <div class="modal-body">
+          <form class="form col-md-12 center-block">
+            <div class="form-group">
+               <input  class="form-control input-lg" type="text" name="username" ng-model="item.email" value="sysadmin" placeholder="Usuario">
+                
+            </div>
+            <div class="form-group">
+              <input class="form-control input-lg" type="password" name="password" ng-model="item.password" value="" placeholder="Contraseña" >
+                
+            </div>
+            <div class="form-group">
+           <input type="submit" name="submit" value="INICIAR SESIÓN" class="btn btn-success btn-lg btn-block">
+            
+              <span class="pull-right"><a href="#">Registrarse</a></span><span></span>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+          <div class="col-md-12">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+		  </div>	
+      </div>
+  </div>
+  </div>
+</div>
+
+<!--
+<div class="log">
+<div  >
   <form ng-submit="login(item)" style="border-radius:10px; border:5px solid green; width:500px; margin:0 auto; padding:20px; box-shadow:2px 5px 2px"  >
     <div class="login" style="text-align:center"><h4>LOGIN</h4></div>
       <div style="margin-left:140px;">
@@ -19,8 +59,9 @@
     <div class="forgot-usr-pwd"><small>
       Olvidaste tu <a href="#">usuario</a> o <a href="#">contraseña</a>?
     </small></div>
-    <input type="submit" name="submit" value="IR" class="btn btn-success">
+    
           </div>
   </form>
 </div>
+    </div>-->
 

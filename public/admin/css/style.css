@@ -1995,7 +1995,7 @@ a.list-group-item.active > .badge,
         Template Skins for Mobile
     -----------------------------------------------------------*/
     #skin-blur-violate {
-        background:  #0F4B80;
+       /* background:  #0F4B80;*/
     }
 
     #skin-blur-lights {
