@@ -1,10 +1,11 @@
 'use strict';
 angular.module('app')
 	.controller('galleryCtrl', function($scope,$http){
+		$scope.imagenes=[]
 		console.log('controlador de galeria admin');
 		var refresh=function(){
 			$http.get('/apiGallery').success(function(response){
-				//console.log(response);
+				console.log(response);
 				$scope.imagenes=response;
 			});
 		};
@@ -15,6 +16,7 @@ angular.module('app')
 				refresh();
 			});
 		};
-		console.log($scope.imagenes);
+		
+
 		$scope.lblTitle="GALERIA DE IMAGENES";
 	});

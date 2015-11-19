@@ -1,5 +1,5 @@
 'use strict'
-angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload'])
+angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload','ngTouch','ngAnimate'])
 	.config(function($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise('home');
 
