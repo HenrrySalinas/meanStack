@@ -9,18 +9,18 @@
               </p>
               <div class="contact-form">
                 
-                <form id="contactForm" action="php/contact.php" method="post" class="form-gray-fields validate">
+                <form id="contactForm" class="form-gray-fields validate">
                   <div class="row">
                     <div class="col-md-6 sep-top-xs">
                       <div class="form-group">
                         <label for="name">Su nombre:</label>
-                        <input id="name" type="text" placeholder="Ingrese su nombre" name="senderName" class="form-control input-lg required">
+                        <input id="name" type="text" placeholder="Ingrese su nombre" name="senderName" class="form-control input-lg required" ng-model="contacto.Nombre">
                       </div>
                     </div>
                     <div class="col-md-6 sep-top-xs">
                       <div class="form-group">
                         <label for="email">Su correo:</label>
-                        <input id="email" type="email" placeholder="Ingrese su correo" name="senderEmail" class="form-control input-lg required email">
+                        <input id="email" type="email" placeholder="Ingrese su correo" name="senderEmail" class="form-control input-lg required email" ng-model="contacto.Correo">
                       </div>
                     </div>
                   </div>
@@ -42,14 +42,14 @@
                     <div class="col-md-12 sep-top-xs">
                       <div class="form-group">
                         <label for="comment">Comentarios o Sugerencias:</label>
-                        <textarea id="comment" placeholder="Ingrese su comentario o sugerencia" rows="9" name="comment" class="form-control input-lg required"></textarea>
+                        <textarea id="comment" placeholder="Ingrese su comentario o sugerencia" rows="9" name="comment" class="form-control input-lg required" ng-model="contacto.Comentario"></textarea>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12 sep-top-xs">
                       <div class="form-group">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i>&nbsp;Enviar Mensaje</button>
+                        <button type="submit" class="btn btn-primary" ng-click="Enviar()"><i class="fa fa-paper-plane"></i>&nbsp;Enviar Mensaje</button>
                       </div>
                     </div>
                   </div>

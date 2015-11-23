@@ -116,7 +116,7 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload','ngT
             .state('home.mostrarcontactos',{
                 url:'/contactos',
                 templateUrl: 'views/contactos/Contacto.html',
-                //controller:'VNoticia'
+                controller:'envCorreo'
             })
         
             /********************END   CONTACTOS STATES***********************/
