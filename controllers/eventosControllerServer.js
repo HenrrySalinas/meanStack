@@ -28,15 +28,24 @@ EventosController.prototype.uploadFile = function(req, res) {
 	var target = fs.createWriteStream(target_path);
     
     var documento={
-        event_id:req.body.event_id,
+        _id:mongojs.ObjectId(),
         directorio:archivo
     }
     source.pipe(target);
     source.on('end', function() { 
 
-        db.multimedia.insert(documento,function(err,doc){
+        /*db.multimedia.insert(documento,function(err,doc){
             res.json(doc);
-        });
+        });*/
+        db.eventos.findAndModify({query:{_id:mongojs.ObjectId(req.body.event_id)},
+            update:{
+                $push:{
+                    imagen:documento
+                    }
+                },new:true},function(err,doc){
+                    res.json(doc);
+                }
+        );
     });
     source.on('error', function(err) { console.error(err.stack)});
 
