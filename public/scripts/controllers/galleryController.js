@@ -1,6 +1,6 @@
 'use strict';
 angular.module('app')
-	.controller('galleryCtrl', function($scope,$http){
+	.controller('galleryEventCtrl', function($scope,$http){
 		$scope.imagenes=[];
 		console.log('controlador de galeria admin');
 		var refresh=function(){
@@ -27,5 +27,5 @@ angular.module('app')
 		};
 		
 
-		$scope.lblTitle="GALERIA DE IMAGENES";
+		$scope.lblTitle="IMAGENES DE EVENTOS";
 	});

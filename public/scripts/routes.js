@@ -114,10 +114,10 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload','ngT
             
             /********************END CONVOCATORIAS STATES***********************/
             /********************BEGIN GALERIA***********************/
-            .state('admin.galeria',{
+            .state('admin.ImageEvents',{
                 url:'/galeria',
-                templateUrl:'views/galeria/indexAdmin.html',
-                controller:'galleryCtrl'
+                templateUrl:'views/galeria/galeria-eventos.html',
+                controller:'galleryEventCtrl'
             });
             /********************END Galeria***********************/
 	});
