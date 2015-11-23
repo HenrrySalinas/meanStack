@@ -1,1 +1,31 @@
-<h1>Convocatorias</h1>
+<div class="formLarge">
+<h1>{{lblTitle}}</h1>
+ <a ui-sref="admin.ConvocatoriasCreate" class="btn btn-success btn-block">Nueva convocatoria</a>
+<div class="row">
+	<table class="table">
+		<caption>convocatoria list</caption>
+		<thead>
+			<tr>
+				<th>nro</th>
+				<th>nombre</th>
+				<th>fecha</th>
+				<th>descripcion</th>
+				<th class="col-md-3">gestión</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="(key, value) in convocatorias">
+				<td>{{key +1}}</td>
+				<td>{{value.titulo}}</td>
+				<td>{{value.fecha | date : "MM/dd/yyyy"}}</td>
+				<td>
+				<div ng-bind-html="value.descripcion"></div></td>
+				<td>
+					<a  ui-sref="admin.ConvocatoriasUpdate({id:value._id})" class="btn btn-warning sm" >Editar</a>
+					<button class="btn btn-danger sm" ng-click="eliminarconvocatoria(value._id)">Eliminar</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</div>

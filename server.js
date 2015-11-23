@@ -1,7 +1,7 @@
 var express=require('express');
 var app=express();
 var mongojs=require('mongojs');
-var db=mongojs('meandb',['eventos','multimedia','LisNoticia']);
+var db=mongojs('meandb',['eventos','multimedia','LisNoticia','convocatoria']);
 var bodyParser=require('body-parser');
 /***************************begin libs para carga de archivos*********************/
 var multipart = require('connect-multiparty');
@@ -70,9 +70,11 @@ var id= req.params.id;
 
 /***************************end noticias section********************************/
 
-/**************************begin gallery section********************************/
-var galleryRoutes = require('./routes/galleryService')(app,db,mongojs);
 
-/**************************end gallery section*********************************/
+/**************************begin convocatoria section********************************/
+var galleryRoutes = require('./routes/convocatoriaService')(app,db,mongojs);
+
+/**************************end convocatoria section*********************************/
+
 app.listen(3000);
 console.log('server runing ... port 3000');

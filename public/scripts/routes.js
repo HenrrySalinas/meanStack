@@ -106,10 +106,22 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload','ngT
         
             /********************END   CONTACTOS STATES***********************/
             /********************BEGIN CONVOCATORIAS***********************/
-           .state('admin.convocatorias',{
-                url:'/convocatorias',
-                templateUrl:'views/convocatorias/index.html',
-                //controller:'Control'
+           .state('admin.Convocatorias',{
+                url:'/Convocatorias',
+                templateUrl:'views/Convocatorias/index.html',
+                controller: 'ConvocatoriaCtrl',
+                caseInsensitiveMatch:true,
+                //authenticate: true
+            })
+            .state('admin.ConvocatoriasCreate',{
+                url:'/Convocatorias/create',
+                templateUrl:'views/Convocatorias/create.html',
+                controller:'createConvocatoriaCtrl'
+            })
+            .state('admin.ConvocatoriasUpdate',{
+                url:'/Convocatorias/update/:id',
+                templateUrl:'views/Convocatorias/edit.html',
+                controller:'updateConvocatoriaCtrl'
             })
             
             /********************END CONVOCATORIAS STATES***********************/
