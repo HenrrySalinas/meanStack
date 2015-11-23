@@ -3,6 +3,8 @@ var app=express();
 var mongojs=require('mongojs');
 var db=mongojs('meandb',['eventos','multimedia','LisNoticia','convocatoria']);
 var bodyParser=require('body-parser');
+
+
 /***************************begin libs para carga de archivos*********************/
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
@@ -23,56 +25,16 @@ app.post('/apiEvents/uploads', multipartMiddleware, eventsController.uploadFile)
 /**************************end eventos section*********************************/
 /***************************begin noticias section******************************/
 
-app.get('/api/NoticiaList', function(req,res){
-console.log("Resivido el metodo de Mostrar")
-
-db.LisNoticia.find(function (err,docs){
-    console.log(docs);
-    res.json(docs);
-});
-});
-
-app.post('/api/NoticiaList',function(req,res){
-    console.log(req.body);
-    db.LisNoticia.insert(req.body,function(err,doc){
-        res.json(doc);
-})
-});
-
-app.delete('/api/NoticiaList/:id',function(req,res){
-    var id= req.params.id;
-    console.log(id);
-    db.LisNoticia.remove({_id: mongojs.ObjectId(id)}, function(err,doc){
-    res.json(doc);
-});
-
-}),
-    
-
-app.get('/api/NoticiaList/:id',function(req,res){
-var id= req.params.id;
-console.log(id);
-db.LisNoticia.findOne({_id:mongojs.ObjectId(id)},function(err,doc){
-    res.json(doc);
-});
-});
-
-
-app.put('/api/NoticiaList/:id',function(req,res){
-var id= req.params.id;
-    console.log(req.body.nombre);
-    db.LisNoticia.findAndModify({query:{_id:mongojs.ObjectId(id)}, update:{$set:{Titulo:req.body.Titulo,Fecha:req.body.Fecha,Autor:req.body.Autor, Contenido:req.body.Contenido}}, new: true},function(err,doc){
-        res.json(doc);
-    
-    });
-                                  
-})
-
+var noticiaRoutes= require('./routes/noticiaService')(app,db,mongojs);
 /***************************end noticias section********************************/
 
 
 /**************************begin convocatoria section********************************/
 var galleryRoutes = require('./routes/convocatoriaService')(app,db,mongojs);
+
+/**************************end convocatoria section*********************************/
+/**************************begin convocatoria section********************************/
+var contactoService= require('./routes/contactoService')(app,db,mongojs);
 
 /**************************end convocatoria section*********************************/
 
