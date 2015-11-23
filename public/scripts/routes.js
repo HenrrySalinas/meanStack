@@ -48,6 +48,21 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload','ngT
                 }
             })
             /*******************BEGIN LOGIN********************************/
+        /********************BEGIN GALERIA***********************/
+
+            .state('galerias',{
+                url:'/galeria',
+                views:{
+                    'header':{templateUrl: 'views/home/headerHome.html'},
+                    'content':{
+                        templateUrl:'views/galeria/index.html',
+                        controller:'loginCtrl'
+                    },
+                    'footer':{templateUrl: 'views/home/footerHome.html'}
+                }
+            })
+
+            /********************BEGIN GALERIA***********************/
             /*******************BEGIN EVENTS STATES************************/
         	.state('admin.events',{
         		url:'/events',
@@ -125,6 +140,7 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload','ngT
             })
             
             /********************END CONVOCATORIAS STATES***********************/
+            
             /********************BEGIN GALERIA***********************/
             .state('admin.ImageEvents',{
                 url:'/galeria',

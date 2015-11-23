@@ -1,8 +1,60 @@
-<div class="container">
-	<div class="jumbotron">
-<h2>{{Noticia.Titulo}}</h2>
-<strong>Fecha: {{Noticia.Fecha | date: 'dd-MM-yyyy'}}</strong><br>
-<strong>Autor: {{Noticia.Autor}}</strong>
-<p>{{Noticia.Contenido}}</p>
-</div>
-</div>
+<br><br>
+<main role="main" itemscope itemtype="http://schema.org/BlogPosting" class="header-section sep-bottom-lg">
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-md-push-3">
+              <h3 class="widget-title upper sep-bottom-xs">{{Noticia.Titulo}}</h3>
+                <h3>Autor: {{Noticia.Autor}}</h3>
+                <h5>Fecha: {{Noticia.Fecha | date: 'dd-MM-yyyy'}}</h5>
+                <img src="img/afiche1.jpg" alt=""  class="img-responsive">
+              <div itemprop="articleBody" class="post-text sep-top-md">
+                <p>{{Noticia.Contenido}}</p>
+              </div>
+             
+              
+            
+            </div>
+            <aside id="sidebar" role="complementary" class="col-md-3 col-md-pull-9 sep-top-md sidebar">
+              <!-- start sidebar-->
+              <h5 class="widget-title upper sep-bottom-xs">NOTICIAS RECIENTES</h5>
+              <ul class="widget widget-media rounded sep-bottom-lg">
+                <li class="media media-bordered clearfix"><a href="#" class="pull-left"><img src="img/logo-chimore-final.jpg" alt="" class="media-object img-circle"></a>
+                  <div class="media-body">
+                    <h6 class="media-heading"><a href="#">Premio e innovacion</a></h6><small>November 28, 2013</small>
+                  </div>
+                </li>
+                <li class="media media-bordered clearfix"><a href="#" class="pull-left"><img src="img/logo-chimore-final.jpg" alt="" class="media-object img-circle"></a>
+                  <div class="media-body">
+                    <h6 class="media-heading"><a href="#">Videos de la feria</a></h6><small>November 28, 2013</small>
+                  </div>
+                </li>
+                <li class="media media-bordered clearfix"><a href="#" class="pull-left"><img src="img/logo-chimore-final.jpg" alt="" class="media-object img-circle"></a>
+                  <div class="media-body">
+                    <h6 class="media-heading"><a href="#">Convocatorias</a></h6><small>November 28, 2013</small>
+                  </div>
+                </li>
+                <li class="media media-bordered clearfix"><a href="#" class="pull-left"><img src="img/logo-chimore-final.jpg" alt="" class="media-object img-circle"></a>
+                  <div class="media-body">
+                    <h6 class="media-heading"><a href="#">ferias en general</a></h6><small>November 28, 2013</small>
+                  </div>
+                </li>
+              </ul>
+              <h5 class="widget-title upper sep-bottom-xs">Categorias</h5>
+              <ul class="widget widget-cat">
+                <li class="cat-item"><a href="#" class="upper">Audio&nbsp;<span class="badge">15</span></a></li>
+                <li class="cat-item"><a href="#" class="upper">Videos&nbsp;<span class="badge">15</span></a></li>
+                <li class="cat-item"><a href="#" class="upper">Audio&nbsp;<span class="badge">7</span></a></li>
+                <li class="cat-item"><a href="#" class="upper">Video&nbsp;<span class="badge">4</span></a></li>
+                <li class="cat-item"><a href="#" class="upper">Creatividad&nbsp;<span class="badge">11</span></a></li>
+              </ul>
+              <!-- end sidebar-->
+            </aside>
+          </div>
+        </div>
+      </main>
+
+
+
+
+
