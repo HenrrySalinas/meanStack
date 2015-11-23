@@ -34,7 +34,7 @@ var galleryRoutes = require('./routes/convocatoriaService')(app,db,mongojs);
 
 /**************************end convocatoria section*********************************/
 /**************************begin convocatoria section********************************/
-var contactoService= require('./routes/contactoService')(app,db,mongojs);
+//var contactoService= require('./routes/contactoService')(app,db,mongojs);
 
 /**************************end convocatoria section*********************************/
 
