@@ -107,10 +107,12 @@ angular.module('app')
 	})
 	.controller('vistaEventoCtrl', function($scope,$http,$stateParams,$timeout,$state){
 		var id=$stateParams.id;
-		
+		$scope.imagenes=[];
 		$http.get('/apiEvents/'+id).success(function(response){
 			
 			$scope.Evento=response;
+			$scope.imagenes=response.imagen;
+			
 		});
 	});
 

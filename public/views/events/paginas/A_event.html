@@ -1,7 +1,18 @@
 <div class="container">
+
 	<div class="jumbotron">
+
 		<div class="row">
 		<center><h3>{{Evento.titulo | uppercase}}</h3></center>
+		<div class="form">
+			<div class="row">
+				<div ng-repeat="(key, value) in imagenes" style="display: inline-block;overflow: hidden;margin-top: 8px;margin-right: 8px;background-color: #fff;border:2px solid #ccc;border-radius: 7px !important;">
+					<a href="#" >
+					<img src="{{value.directorio}}" alt="" style="height:250px;width:250px">
+					</a>
+				</div>
+			</div>
+		</div>
 				<span class="label label-default">{{Evento.fecha | date : "MM/dd/yyyy"}}</span>
 				<br><br>
 				
