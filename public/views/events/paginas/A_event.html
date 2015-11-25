@@ -1,31 +1,69 @@
-<br><br>
-<main role="main" itemscope itemtype="http://schema.org/BlogPosting" class="header-section sep-bottom-lg">
-        
+<!-- Start Shop section-->
+      <section itemscope itemtype="http://data-vocabulary.org/Product">
         <div class="container">
           <div class="row">
-            <div class="col-md-9 col-md-push-3">
-               
-                
-                
-                
-                
-                
-              <h3 class="widget-title upper sep-bottom-xs">{{Evento.titulo | uppercase}}</h3>
-                
-                <h5>{{Evento.fecha | date : "MM/dd/yyyy"}}</h5>
-                 <div ng-repeat="(key, value) in imagenes" style="display: inline-block;overflow: hidden;margin-top: 8px;margin-right: 8px;background-color: #fff;border:2px solid #ccc;border-radius: 7px !important;">
+           <!-- Start Sidebar-->
+            <div class="col-md-5 sep-top-2x" style="margin-top:10%;">
+                <div class="product-images" ng-repeat="(key, value) in imagenes" style="display: inline-block;overflow: hidden;margin-top: 8px;margin-right: 8px;background-color: #fff;border:2px solid #ccc;border-radius: 7px !important;">
 					<a href="#" >
 					<img src="{{value.directorio}}" alt="" style="height:250px;width:250px">
 					</a>
 				</div>
+           
+              <div class="product-thumbnails"><a href="img/products/cat-prod0.jpg" data-rel="prettyPhoto[pp_gal]" title="Robert Jacket" class="zoom first"><img title="" alt="" src="img/galeria/afiche2.jpg" class="img-responsive"></a><a href="img/products/cat-prod4.jpg" data-rel="prettyPhoto[pp_gal]" title="Robert Jacket" class="zoom first"><img title="" alt="" src="img/galeria/afiche3.jpg" class="img-responsive"></a><a href="img/products/cat-prod2.jpg" data-rel="prettyPhoto[pp_gal]" title="Robert Jacket" class="zoom first"><img title="" alt="" src="img/galeria/afiche4.jpg" class="img-responsive"></a>
+              </div>
+            </div>
+            <!-- Start Content-->
+            <div class="col-md-7 sep-top-lg">
+              <div class="main-product-title">
+                <ul class="social-icon pull-right">
+                  <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
+                  <li><a href="#"><i class="fa fa-facebook-square fa-lg"></i></a></li>
+                  <li><a href="#"><i class="fa fa-pinterest fa-lg"></i></a></li>
+                </ul>
+                <!--
+                li
+                  .btn-group
+                    a.dropdown-toggle(href='#', data-toggle="dropdown")
+                      i.fa.fa-bars.fa-lg
+                    ul.dropdown-menu.pull-right(role='menu')
+                      li
+                        a(href='#') Dropdown link
+                      li
+                        a(href='#') Dropdown link
+                -->
+                <h2><span itemprop="name">{{Evento.titulo | uppercase}}</span><small itemprop="brand">{{Evento.fecha | date : "MM/dd/yyyy"}}</small></h2>
+                <meta itemprop="identifier" content="mpn:12345-6789">
+              </div>
+              <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" content="3" class="rate sep-top-xs">
+                <meta itemprop="worstRating" content="1">
+                <meta itemprop="ratingValue" content="3">
+                <meta itemprop="bestRating" content="5"><i class="fa fa-star fa-lg"></i><i class="fa fa-star fa-lg"></i><i class="fa fa-star fa-lg"></i><i class="fa fa-star-o fa-lg"></i><i class="fa fa-star-o fa-lg"></i><small></small>
+              </div>
+              <div itemprop="description" class="sep-top-sm">
+                  
               <div itemprop="articleBody" class="post-text sep-top-md">
-                <p  ng-bind-html="Evento.descripcion"></p>
+                <p  class="lead" ng-bind-html="Evento.descripcion"></p>
+              </div>
+             
               </div>
              
               
-            
+              <ul class="sep-top-lg product-category">
+                <li>
+                  <h6 class="upper">Category</h6><a href="#">T-Shirt</a>,&nbsp;<a href="#">Man</a>
+                </li>
+                <li>
+                  <h6 class="upper">Tags</h6><a href="#">Winter collection</a>,&nbsp;<a href="#">Osaka</a>,&nbsp;<a href="#">Sale</a>
+                </li>
+              </ul>
             </div>
-            <aside id="sidebar" role="complementary" class="col-md-3 col-md-pull-9 sep-top-md sidebar">
+            <!-- End Content-->
+          </div>
+          <div class="row">
+          
+              
+            <aside id="sidebar" role="complementary" class="col-md-4">
               <!-- start sidebar-->
               <h5 class="widget-title upper sep-bottom-xs">NOTICIAS RECIENTES</h5>
               <ul class="widget widget-media rounded sep-bottom-lg">
@@ -59,10 +97,52 @@
                 <li class="cat-item"><a href="#" class="upper">Creatividad&nbsp;<span class="badge">11</span></a></li>
               </ul>
               <!-- end sidebar-->
-            </aside>
+            </aside>  
+              
+              
+            <!-- Start Sidebar-->
+            
+              
+              
+              <div class="col-md-5">
+              <h5 class="widget_title upper">Comentarios</h5>
+              <!-- start Reviews-->
+              <section id="rate-product">
+                <article itemprop="review" itemscope itemtype="http://data-vocabulary.org/Review" class="sep-bottom-xs media media-bordered"><a href="#" class="pull-left"><img src="img/team/square/4.jpg" alt="" width="50" class="media-object img-circle"></a>
+                  <div class="media-body">
+                    <footer>
+                      <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="rate">
+                        <meta itemprop="ratingValue" content="3"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><small>
+                          <meta content="2011-04-01T14:07" itemprop="publishDate">7 minutes ago</small>
+                      </div>
+                      <h5 itemprop="author" class="media-heading">Fernando Iquiza</h5>
+                      <p itemprop="reviewBody">Estupendo.....!!</p>
+                    </footer>
+                  </div>
+                </article>
+                <article itemprop="review" itemscope itemtype="http://data-vocabulary.org/Review" class="sep-bottom-xs media media-bordered"><a href="#" class="pull-left"><img src="img/team/square/3.jpg" alt="" width="50" class="media-object img-circle"></a>
+                  <div class="media-body">
+                    <footer>
+                      <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="rate">
+                        <meta itemprop="ratingValue" content="3"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><small>
+                          <meta content="2011-04-01T14:07" itemprop="publishDate">7 minutes ago</small>
+                      </div>
+                      <h5 itemprop="author" class="media-heading">Henrry Salinas</h5>
+                      <p itemprop="reviewBody">Muy bien.............loco</p>
+                    </footer>
+                  </div>
+                </article>
+              </section>
+              <!-- End Reviews-->
+            </div>
+            <!-- End Sidebar-->
           </div>
         </div>
-      </main>
+      </section>
+      <!-- End Shop section-->
+
+
+
 
 
 
