@@ -73,14 +73,19 @@ angular.module('app')
         	
       	}
 	})
-	.controller('updateEventCtrl', function($scope,$http,$stateParams,$location,$timeout,$state){
+	.controller('updateEventCtrl', function($scope,$http,$stateParams,$timeout,$state){
 		var id=$stateParams.id;
 		$scope.lblTitle="ACTUALIZAR EVENTO";
 		$scope.btnGuardar="Actualizar";
 		$scope.btnAtras="Atras";
+		$scope.imagenes=[];
 		$http.get('/apiEvents/'+id).success(function(response){
-			
+			console.log(response);
 			$scope.Evento=response;
+			angular.forEach(response.imagen, function(value, key) {
+			      	
+	        	$scope.imagenes.push(value);
+	        });
 		});
 		$scope.updateEvent=function(){
 			$http.put('/apiEvents/'+ $scope.Evento._id,$scope.Evento).success(function(response){
@@ -89,12 +94,15 @@ angular.module('app')
 					$state.go('admin.events');
 				},1000)
 			})
+		
+		}
 		$scope.atras=function(){
 			$state.go('^');
 		}
-		}
-		
-		
+		$scope.eliminarImagen = function(id) {
+        	console.log(id);
+        	
+      	}
 	})
 	.controller('partialEventoCtrl', function($scope,$http,$state,$sce){
 		$http.get('/apiEvents').success(function(response){
@@ -108,6 +116,7 @@ angular.module('app')
 	.controller('vistaEventoCtrl', function($scope,$http,$stateParams,$timeout,$state){
 		var id=$stateParams.id;
 		$scope.imagenes=[];
+
 		$http.get('/apiEvents/'+id).success(function(response){
 			
 			$scope.Evento=response;

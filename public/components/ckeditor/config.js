@@ -45,7 +45,7 @@ CKEDITOR.editorConfig = function( config ) {
 	 config.height = '300px';
 
 	 config.marginTop = '10px';
-	///config.extraPlugins = 'uploadimage';
+	//config.extraPlugins = 'uploadimage';
 	 
 
 	 //config.removePlugins = 'save,a11yhelp,forms,etc';

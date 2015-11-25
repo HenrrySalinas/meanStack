@@ -160,8 +160,8 @@ angular.module('app').directive('ckEditor', [function () {
                 var data = [];
 
                 var ck = CKEDITOR.replace(elm[0],{
-                    filebrowserBrowseUrl: '/',
-                    filebrowserUploadUrl: '/'
+                    //filebrowserBrowseUrl: '/',
+                    //filebrowserUploadUrl: '/'
                 });
                 
                 function setData() {

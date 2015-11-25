@@ -1,10 +1,11 @@
 <h1>{{lblTitle}}</h1>
 <div class="form">
 	<div class="row">
-		<div ng-repeat="(key, value) in imagenes" style="display: inline-block;overflow: hidden;margin-top: 8px;margin-right: 8px;background-color: #fff;border:2px solid #ccc;border-radius: 7px !important;">
-			<a href="#" >
-			<img src="{{value.directorio}}" alt="" style="height:250px;width:250px">
+		<div  ng-repeat="(key, value) in getImages()" style="display: inline-block;overflow: hidden;margin-top: 8px;margin-right: 8px;background-color: #fff;border:2px solid #ccc;border-radius: 7px !important;">
+			<a href="{{value.directorio}}" >
+			<img src="{{value.directorio}}"  style="height:250px;width:250px">
 			</a>
+
 		</div>
 	</div>
 </div>

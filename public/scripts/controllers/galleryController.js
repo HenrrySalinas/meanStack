@@ -18,7 +18,10 @@ angular.module('app')
 			});
 		};
 		refresh();
-		
+
+		$scope.getImages=function(){
+			return $scope.imagenes;
+		}
 		$scope.eliminarImagen=function(id){
 			
 			$http.delete('/apiEvents/'+id).success(function(response){

@@ -25,7 +25,7 @@
         <img ngf-src="f" class="thumb" ngf-resize="{width: 200, height: 200, quality: 0.9}" style="width:150px;height:150px;"><br><br>
 
             <button class= "btn btn-warning btn-cancel" ng-disabled="!form.$valid" 
-                ng-click="quitarImagen($index)">Cancel</button> 
+                ng-click="quitarImagen($index)">Cancelar</button> 
 
             <br><br>
             <p>{{f.name}}</p>
@@ -42,7 +42,9 @@
   	<div class="form-group">
   		<label for="descripcion">Descripcion:</label>
       	<!--<textarea id="descripcion" class="form-control" ng-model="Evento.descripcion" style="height:300px;"></textarea>-->
-        <textarea class="ck-editor" ng-model="Evento.descripcion"style="height:400px" ></textarea>
+        <textarea class="ck-editor" ng-model="Evento.descripcion"style="height:400px" >
+          
+        </textarea>
     	</div>
       
 

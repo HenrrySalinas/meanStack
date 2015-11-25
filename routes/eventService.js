@@ -39,4 +39,10 @@ module.exports = function(app,db,mongojs) {
 				}
 		);
 	});
+	app.delete('/apiEventsGallery/:id',function(req,res){
+		var id=req.params.id;
+		db.eventos.remove({_id:mongojs.ObjectId(id)},function(err,doc){
+			res.json(doc);
+		});
+	});
 }
