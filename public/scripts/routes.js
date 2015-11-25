@@ -63,6 +63,21 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload','ngT
             })
 
             /********************BEGIN GALERIA***********************/
+         /********************BEGIN ACERCA***********************/
+
+            .state('acerca',{
+                url:'/acerca',
+                views:{
+                    'header':{templateUrl: 'views/home/headerHome.html'},
+                    'content':{
+                        templateUrl:'views/acerca/acerca.html',
+                        controller:'loginCtrl'
+                    },
+                    'footer':{templateUrl: 'views/home/footerHome.html'}
+                }
+            })
+
+            /********************BEGIN ACERCA***********************/
             /*******************BEGIN EVENTS STATES************************/
         	.state('admin.events',{
         		url:'/events',
@@ -139,6 +154,20 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload','ngT
                 controller:'updateConvocatoriaCtrl'
             })
             
+        
+        
+        .state('convocatorias',{
+                url:'/convocatoria',
+                views:{
+                    'header':{templateUrl: 'views/home/headerHome.html'},
+                    'content':{
+                        templateUrl:'views/convocatorias/convocatoria.html',
+                        controller:'loginCtrl'
+                    },
+                    'footer':{templateUrl: 'views/home/footerHome.html'}
+                }
+            })
+        
             /********************END CONVOCATORIAS STATES***********************/
             
             /********************BEGIN GALERIA***********************/
