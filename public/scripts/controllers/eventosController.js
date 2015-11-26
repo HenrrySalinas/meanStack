@@ -79,29 +79,45 @@ angular.module('app')
 		$scope.btnGuardar="Actualizar";
 		$scope.btnAtras="Atras";
 		$scope.imagenes=[];
-		$http.get('/apiEvents/'+id).success(function(response){
-			console.log(response);
-			$scope.Evento=response;
-			angular.forEach(response.imagen, function(value, key) {
-			      	
-	        	$scope.imagenes.push(value);
-	        });
-		});
+		var refreshUpdate=function(){
+			$scope.imagenes=[];
+			$http.get('/apiEvents/'+id).success(function(response){
+				//console.log(response);
+				$scope.Evento=response;
+				angular.forEach(response.imagen, function(value, key) {
+				      	
+		        	$scope.imagenes.push(value);
+		        });
+			});
+		}
+		refreshUpdate();
 		$scope.updateEvent=function(){
 			$http.put('/apiEvents/'+ $scope.Evento._id,$scope.Evento).success(function(response){
 				$timeout(function(){
 					//$location.path('/events');
 					$state.go('admin.events');
 				},1000)
-			})
+			});
 		
 		}
 		$scope.atras=function(){
 			$state.go('^');
 		}
-		$scope.eliminarImagen = function(id) {
-        	console.log(id);
+		$scope.eliminarImagen = function(id_imagen,par_directorio) {
+			var eventToDelete={
+				_id:$scope.Evento._id,
+				directorio:par_directorio
+
+			}
         	
+        	$http.put('/apiEventsGallery/'+ id_imagen,eventToDelete).success(function(response){
+				/*$timeout(function(){
+					//$location.path('/events');
+					$state.go('admin.events');
+				},1000)*/
+        		
+			});
+        	refreshUpdate();
       	}
 	})
 	.controller('partialEventoCtrl', function($scope,$http,$state,$sce){

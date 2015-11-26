@@ -10,7 +10,7 @@ EventosController.prototype.uploadFile = function(req, res) {
     //console.log(file.name);
     //console.log(file.type); 
     //console.log(file.path);
-    console.log(req.body.event_id);
+    //console.log(req.body.event_id);
     var extencion=file.name.split('.').pop();
     file.name=new Date().getTime();
     var newName='event_'+file.name+'.'+extencion;

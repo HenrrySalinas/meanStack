@@ -22,11 +22,8 @@ angular.module('app')
 		$scope.getImages=function(){
 			return $scope.imagenes;
 		}
-		$scope.eliminarImagen=function(id){
-			
-			$http.delete('/apiEvents/'+id).success(function(response){
-				refresh();
-			});
+		$scope.eliminarImagen=function(id,Evento){
+
 		};
 		
 
