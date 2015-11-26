@@ -107,6 +107,7 @@ angular.module('app')
 	.controller('partialEventoCtrl', function($scope,$http,$state,$sce){
 		$http.get('/apiEvents').success(function(response){
 				$scope.listaEventos=response;
+				console.log(response);
 			});
 		$scope.Limit = 100;
 		$scope.leerMas=function(id){

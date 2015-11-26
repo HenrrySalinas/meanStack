@@ -13,8 +13,9 @@
 	margin-top: 5px;
 	margin-bottom:  5px;
 	transition: all 0.3s ease;
+    padding: 7px;
 }
 .eventCard:hover{
 	background-color: rgba(217, 217, 217, 0.4);
-
+    border-radius: 5px;
 }

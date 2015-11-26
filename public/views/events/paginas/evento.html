@@ -3,7 +3,7 @@
 <section class="sep-top-2x sep-bottom-2x">
         <div class="container">
           <div class="row">
-              <h2 style="text-align:center">EVENTOS</h2>
+              <h2 style="text-align:center">&nbsp;</h2>
  
               
                
@@ -17,17 +17,27 @@
                     <div class="row eventCard" ng-repeat="(key, value) in listaEventos"  >
                         <div class="icon-content img-circle"><i class="fa fa-lightbulb-o"></i></div>
                         <a ui-sref="home.event({id:value._id})" title="{{value.titulo | lowercase}}" style="box-shadow:5px 1px 1px #000">
-                            <div >
-                                <h4>{{value.titulo | uppercase}}</h4>
+                            <div class="col-md-6 col-md-offset-1" >
+                                <h6>{{value.titulo | uppercase}}</h6>
 
                                 <div class="span5">
                                 <h6 class="media-heading">{{value.fecha | date : "MM/dd/yyyy"}}</h6>
-
-                                        <p class="lead" ng-bind-html="(value.descripcion | limitTo: Limit) +'...'"></p>
+                                <hr>
+                                        
+                                 <p class="lead" ng-bind-html="(value.descripcion | limitTo: Limit) +'...'"></p>
                                         <a class="btn btn-primary btn-xs" ui-sref="home.event({id:value._id})">Leer Mas</a>
-
                                 </div>
                             </div>
+                             <div class="col-md-3">
+                                    <div  ng-repeat="(key, value) in value.imagen" >
+                                      <div ng-if="$first">
+                                        <a href="{{value.directorio}}" >
+                                          <img src="{{value.directorio}}"  style="height:140px;width:140px" class="media-object img-circle">
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                            
                         </a>	
                         </div>
                     </div>
