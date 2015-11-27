@@ -73,7 +73,7 @@ angular.module('app')
         	
       	}
 	})
-	.controller('updateEventCtrl', function($scope,$http,$stateParams,$timeout,$state){
+	.controller('updateEventCtrl', function($scope,$http,$stateParams,$timeout,$state,Upload){
 		var id=$stateParams.id;
 		$scope.lblTitle="ACTUALIZAR EVENTO";
 		$scope.btnGuardar="Actualizar";
@@ -94,22 +94,26 @@ angular.module('app')
 		$scope.updateEvent=function(){
 			$http.put('/apiEvents/'+ $scope.Evento._id,$scope.Evento).success(function(response){
 				$timeout(function(){
-					//$location.path('/events');
+					if ($scope.archivosEvento) {
+	        			$scope.uploadFiles($scope.archivosEvento,$scope.Evento._id);
+	        		
+	      			}
 					$state.go('admin.events');
 				},1000)
 			});
 		
 		}
+
 		$scope.atras=function(){
 			$state.go('^');
 		}
+
 		$scope.eliminarImagen = function(id_imagen,par_directorio) {
 			var eventToDelete={
 				_id:$scope.Evento._id,
 				directorio:par_directorio
 
 			}
-        	
         	$http.put('/apiEventsGallery/'+ id_imagen,eventToDelete).success(function(response){
 				/*$timeout(function(){
 					//$location.path('/events');
@@ -119,6 +123,66 @@ angular.module('app')
 			});
         	refreshUpdate();
       	}
+
+      	$scope.quitarImagen = function(index) {
+        	$scope.archivosEvento.splice(index,1);//para eliminar un eliminarEventoento de un array
+        	
+      	}
+      	$scope.uploadFiles = function(files,id_event) {
+	    	console.log(id_event);
+	        $scope.files = files;
+	        console.log($scope.files);
+	        //$scope.errFiles = errFiles;
+	        angular.forEach(files, function(file) {
+	            file.upload = Upload.upload({
+	                url: '/apiEvents/uploads',
+	                data: {event_id:id_event},
+	                file:file
+	            });
+
+	            file.upload.then(function (response) {
+	                $timeout(function () {
+	                    file.result = response.data;
+	                    console.log(response);
+	                });
+	            }, function (response) {
+	                if (response.status > 0)
+	                    $scope.errorMsg = response.status + ': ' + response.data;
+	            }, function (evt) {
+	                file.progress = Math.min(100, parseInt(100.0 * 
+	                                         evt.loaded / evt.total));
+	                
+	            });
+	        });
+    	};
+    	$scope.isImage=function(url){
+		   	var arr = [ "jpeg", "jpg", "gif", "png" ];
+		   	var ext = url.substring(url.lastIndexOf(".")+1);
+			for (var i = 0; i < arr.length; i++) {
+		   		if(ext==arr[i]){
+		   			return true;
+		   		}
+
+		   	};
+
+		}
+		$scope.isExcel=function(url){
+		   	var ext = url.substring(url.lastIndexOf(".")+1);
+		   		if(ext=='xlsx')
+		   			return true;
+		}
+		$scope.isVideo=function(url){
+		   	var arr = [ "mp4", "flv", "3gp", "wmv" ];
+		   	var ext = url.substring(url.lastIndexOf(".")+1);
+			for (var i = 0; i < arr.length; i++) {
+		   		if(ext==arr[i]){
+		   			return true;
+		   		}
+
+		   	};
+
+		}
+		
 	})
 	.controller('partialEventoCtrl', function($scope,$http,$state,$sce){
 		$http.get('/apiEvents').success(function(response){

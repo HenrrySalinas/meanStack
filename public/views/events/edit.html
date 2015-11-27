@@ -1,6 +1,6 @@
 <div class="form">
 <h3>{{lblTitle}}</h3>
-   <form role="form" >
+   <form role="form" name="form">
     <div class="row">
       <div class="form-group col-md-6">
         <label for="titulo">Titulo:</label>
@@ -13,16 +13,63 @@
     </div>
     <div class="row">
       <div ng-repeat="(key, value) in imagenes" style="display: inline-block;overflow: hidden;margin-top: 8px;margin-right: 8px;background-color: #fff;border:2px solid #ccc;border-radius: 7px !important;">
-        <a href="{{value.directorio}}" >
-        <img src="{{value.directorio}}" alt="" style="height:250px;width:250px;float:left;position: relative">
-        </a><br>
-        <div style="float: left;position: absolute">
-          <button class= "btn btn-danger btn-cancel" 
-                ng-click="eliminarImagen(value._id,value.directorio)">Eliminar</button> 
-        </div>
+        
+          
+          <div ng-show="isImage(value.directorio)">
+          <a href="{{value.directorio}}" >
+          <img ngf-src="value.directorio" class="thumb" alt="" style="height:250px;width:250px;float:left;position: relative"></a><br>
+            <div style="float: left;position: absolute">
+              <button class= "btn btn-danger btn-cancel" ng-click="eliminarImagen(value._id,value.directorio)">Eliminar</button> 
+            </div>
+          </div>
+          <div ng-show="isExcel(value.directorio)">
+          <a href="{{value.directorio}}" >
+          <img src="/thumb.png" class="thumb" alt="" style="height:250px;width:250px;float:left;position: relative"></a><br>
+            <div style="float: left;position: absolute">
+              <button class= "btn btn-danger btn-cancel" ng-click="eliminarImagen(value._id,value.directorio)">Eliminar</button> 
+            </div>
+          </div>
+          <div ng-show="isVideo(value.directorio)">
+          <a href="{{value.directorio}}" >
+          <video controls ngf-src="value.directorio"  style="width:250px;height:250px;float:left;position: relative"></video></a><br>
+            <div style="float: left;position: absolute">
+              <button class= "btn btn-danger btn-cancel" ng-click="eliminarImagen(value._id,value.directorio)">Eliminar</button> 
+            </div>
+          </div>
+          
+          
         
       </div>
     </div>
+        <div class="row">
+        <div class="form-group col-md-6">
+            <label for="archivosEvento" >Agregar Imagen/Archivo:</label>
+            <input type="file" class="form-control" ngf-select ng-model="archivosEvento" ngf-multiple="true"  name="archivosEvento"/>
+        </div>
+    </div>
+    Imagenes/Archivos cargados:
+    <div class="row">
+      <div ng-repeat="f in archivosEvento track by $index"  class="form-group col-md-3" style="overflow: hidden">
+        <!--<div ng-show="f.type.indexOf('image') > -1"> -->
+        <div class="row">
+        <img ngf-src="f" class="thumb" ngf-resize="{width: 200, height: 200, quality: 0.9}" style="width:200px;height:170px;">
+        
+        <video controls ngf-src="f" ngf-resize="{width: 200, height: 200, quality: 0.9}" style="width:200px;height:170px;"></video>
+            
+            <button class= "btn btn-warning btn-cancel" 
+                ng-click="quitarImagen($index)">Cancelar</button> 
+
+            <br><br>
+            <p>{{f.name}}</p>
+            <br>
+            <span class="progress" ng-show="f.progress >= 0">
+              <div style="width:{{f.progress}}%" 
+                    ng-bind="f.progress + '%'"></div>
+            </span>
+            
+        </div>    
+      </div>
+    </div> 
 	<div class="form-group">
 		<label for="descripcion">Descripcion:</label>
     	<!--<textarea id="descripcion" class="form-control" ng-model="Evento.descripcion" style="height:300px;"></textarea>-->

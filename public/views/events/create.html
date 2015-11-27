@@ -14,17 +14,18 @@
 
     <div class="row">
         <div class="form-group col-md-6">
-            <label for="archivosEvento" >Imagen:</label>
+            <label for="archivosEvento" >Agregar Imagen/Archivo:</label>
             <input type="file" class="form-control" ngf-select ng-model="archivosEvento" ngf-multiple="true"  name="archivosEvento"/>
         </div>
     </div>
-    Imagenes cargadas:
+    Imagenes/Archivos cargados:
     <div class="row">
-      <div ng-repeat="f in archivosEvento track by $index"  class="form-group col-md-2" style="overflow: hidden;">
-        <div ng-show="f.type.indexOf('image') > -1">    
-        <img ngf-src="f" class="thumb" ngf-resize="{width: 200, height: 200, quality: 0.9}" style="width:150px;height:150px;"><br><br>
-
-            <button class= "btn btn-warning btn-cancel" ng-disabled="!form.$valid" 
+      <div ng-repeat="f in archivosEvento track by $index"  class="form-group col-md-3" style="overflow: hidden;">
+        <!--<div ng-show="f.type.indexOf('image') > -1"> -->
+        <div class="row">
+        <img ngf-src="f" class="thumb" ngf-resize="{width: 200, height: 200, quality: 0.9}" style="width:200px;height:170px;">
+        <video controls ngf-src="f" ngf-resize="{width: 200, height: 200, quality: 0.9}" style="width:200px;height:170px;"></video>
+            <button class= "btn btn-warning btn-cancel"  
                 ng-click="quitarImagen($index)">Cancelar</button> 
 
             <br><br>
