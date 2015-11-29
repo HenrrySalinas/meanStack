@@ -2,15 +2,21 @@
       <section itemscope itemtype="http://data-vocabulary.org/Product">
         <div class="container">
           <div class="row">
-           <!-- Start Sidebar-->
+           <!-- Start Sidebar--> 
             <div class="col-md-5 sep-top-2x" style="margin-top:10%;">
-                <div class="product-images" ng-repeat="(key, value) in imagenes" style="display: inline-block;overflow: hidden;margin-top: 8px;margin-right: 8px;background-color: #fff;border:2px solid #ccc;border-radius: 7px !important;">
-					<a href="#" >
-					<img src="{{value.directorio}}" alt="" style="height:250px;width:250px">
-					</a>
-				</div>
-           
-              <div class="product-thumbnails"><a href="img/products/cat-prod0.jpg" data-rel="prettyPhoto[pp_gal]" title="Robert Jacket" class="zoom first"><img title="" alt="" src="img/galeria/afiche2.jpg" class="img-responsive"></a><a href="img/products/cat-prod4.jpg" data-rel="prettyPhoto[pp_gal]" title="Robert Jacket" class="zoom first"><img title="" alt="" src="img/galeria/afiche3.jpg" class="img-responsive"></a><a href="img/products/cat-prod2.jpg" data-rel="prettyPhoto[pp_gal]" title="Robert Jacket" class="zoom first"><img title="" alt="" src="img/galeria/afiche4.jpg" class="img-responsive"></a>
+              <div ng-repeat="(key, value) in imagenes" class="product-images cardFile">
+               
+                <div ng-show="isImage(value.directorio)">
+                <a href="{{value.directorio}}" >
+                <img ngf-src="value.directorio" class="fileApp" alt="" ></a><br>
+                </div>
+                
+                <div ng-show="isVideo(value.directorio)">
+                <a href="{{value.directorio}}" target="_blank">
+                <video controls ngf-src="value.directorio"  class="fileApp"></video>
+                </a><br>
+                </div>
+
               </div>
             </div>
             <!-- Start Content-->
@@ -34,6 +40,8 @@
                 -->
                 <h2><span itemprop="name">{{Evento.titulo | uppercase}}</span><small itemprop="brand">{{Evento.fecha | date : "MM/dd/yyyy"}}</small></h2>
                 <meta itemprop="identifier" content="mpn:12345-6789">
+                 
+                <br>
               </div>
               <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" content="3" class="rate sep-top-xs">
                 <meta itemprop="worstRating" content="1">
@@ -41,7 +49,26 @@
                 <meta itemprop="bestRating" content="5"><i class="fa fa-star fa-lg"></i><i class="fa fa-star fa-lg"></i><i class="fa fa-star fa-lg"></i><i class="fa fa-star-o fa-lg"></i><i class="fa fa-star-o fa-lg"></i><small></small>
               </div>
               <div itemprop="description" class="sep-top-sm">
-                  
+                  <div class="row">
+                    <div ng-repeat="(key, value) in imagenes">
+                      <div ng-show="isCompress(value.directorio)">
+                      <a href="{{value.directorio}}" >
+                      <img src="images/office/compress.png" class="fileApp" style="width:50px;height: 50px" alt="">
+                      </a>
+                      </div>
+                      
+                      <div ng-show="isPdf(value.directorio)">
+                      <a href="{{value.directorio}}" target="_blank">
+                      <img src="images/office/pdf.png" class="fileApp" style="width:50px;height: 50px" alt="" ></a>
+                      </div>
+                      
+                      <div ng-show="isOffice(value.directorio)">
+                      <a href="{{value.directorio}}" >
+                      <img src="{{getTypeOffice(value.directorio)}}" class="fileApp" style="width:50px;height: 50px" alt="" >
+                      </a>
+                      </div>
+                    </div>
+                  </div>
               <div itemprop="articleBody" class="post-text sep-top-md">
                 <p  class="lead" ng-bind-html="Evento.descripcion"></p>
               </div>

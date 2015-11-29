@@ -11,32 +11,49 @@
         <input type="text" class="form-control" id="fecha" ng-model="Evento.fecha  ">
       </div>
     </div>
-    <div class="row">
-      <div ng-repeat="(key, value) in imagenes" style="display: inline-block;overflow: hidden;margin-top: 8px;margin-right: 8px;background-color: #fff;border:2px solid #ccc;border-radius: 7px !important;">
+   
+    <div class="row" >
+      <div ng-repeat="(key, value) in imagenes" class="cardFile">
         
           
           <div ng-show="isImage(value.directorio)">
           <a href="{{value.directorio}}" >
-          <img ngf-src="value.directorio" class="thumb" alt="" style="height:250px;width:250px;float:left;position: relative"></a><br>
-            <div style="float: left;position: absolute">
+          <img ngf-src="value.directorio" class="fileApp" alt="" ></a><br>
+            <div class="btnEliminarImg">
               <button class= "btn btn-danger btn-cancel" ng-click="eliminarImagen(value._id,value.directorio)">Eliminar</button> 
             </div>
           </div>
-          <div ng-show="isExcel(value.directorio)">
+          <div ng-show="isOffice(value.directorio)">
           <a href="{{value.directorio}}" >
-          <img src="/thumb.png" class="thumb" alt="" style="height:250px;width:250px;float:left;position: relative"></a><br>
-            <div style="float: left;position: absolute">
+          <img src="{{getTypeOffice(value.directorio)}}" class="fileApp" alt="" >
+          </a><br>
+            <div class="btnEliminarImg">
               <button class= "btn btn-danger btn-cancel" ng-click="eliminarImagen(value._id,value.directorio)">Eliminar</button> 
             </div>
           </div>
           <div ng-show="isVideo(value.directorio)">
-          <a href="{{value.directorio}}" >
-          <video controls ngf-src="value.directorio"  style="width:250px;height:250px;float:left;position: relative"></video></a><br>
-            <div style="float: left;position: absolute">
+          <a href="{{value.directorio}}" target="_blank">
+          <video controls ngf-src="value.directorio"  class="fileApp"></video>
+          </a><br>
+            <div class="btnEliminarImg">
               <button class= "btn btn-danger btn-cancel" ng-click="eliminarImagen(value._id,value.directorio)">Eliminar</button> 
             </div>
           </div>
-          
+          <div ng-show="isCompress(value.directorio)">
+          <a href="{{value.directorio}}" >
+          <img src="images/office/compress.png" class="fileApp" alt="">
+          </a><br>
+            <div class="btnEliminarImg">
+              <button class= "btn btn-danger btn-cancel" ng-click="eliminarImagen(value._id,value.directorio)">Eliminar</button> 
+            </div>
+          </div>
+          <div ng-show="isPdf(value.directorio)">
+          <a href="{{value.directorio}}" target="_blank">
+          <img src="images/office/pdf.png" class="fileApp" alt="" ></a><br>
+            <div class="btnEliminarImg">
+              <button class= "btn btn-danger btn-cancel" ng-click="eliminarImagen(value._id,value.directorio)">Eliminar</button> 
+            </div>
+          </div>
           
         
       </div>

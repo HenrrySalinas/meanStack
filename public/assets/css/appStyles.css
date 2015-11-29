@@ -19,3 +19,22 @@
 	background-color: rgba(217, 217, 217, 0.4);
     border-radius: 5px;
 }
+.fileApp{
+    height:250px;
+    width:250px;
+    float: left;
+    position: relative;
+}
+.cardFile{
+    display: inline-block;
+    overflow: hidden;
+    margin-top: 8px;
+    margin-right: 8px;
+    background-color: #fff;
+    border:2px solid #ccc;
+border-radius: 7px !important;
+}
+.btnEliminarImg{
+    float: left;
+    position: absolute;
+}

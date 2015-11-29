@@ -42,7 +42,7 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// config.uiColor = '#AADC6E';
 
-	 config.height = '300px';
+	 config.height = '450px';
 
 	 config.marginTop = '10px';
 	//config.extraPlugins = 'uploadimage';
