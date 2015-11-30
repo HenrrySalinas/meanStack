@@ -8,10 +8,10 @@
 		<caption>evens list</caption>
 		<thead>
 			<tr>
-				<th>nro</th>
+				<th>Nro.</th>
 				<th>nombre</th>
 				<th>fecha</th>
-				<th>descripcion</th>
+				<!--<th>descripcion</th>-->
 				<th class="col-md-3">gestión</th>
 			</tr>
 		</thead>
@@ -20,8 +20,8 @@
 				<td>{{key +1}}</td>
 				<td>{{value.titulo}}</td>
 				<td>{{value.fecha | date : "MM/dd/yyyy"}}</td>
-				<td>
-				<div ng-bind-html="value.descripcion"></div></td>
+				<!--<td>
+				<div ng-bind-html="value.descripcion"></div></td>-->
 				<td>
 					<a  ui-sref="admin.eventsUpdate({id:value._id})" class="btn btn-warning sm" >Editar</a>
 					<button class="btn btn-danger sm" ng-click="eliminarEvento(value._id)">Eliminar</button>

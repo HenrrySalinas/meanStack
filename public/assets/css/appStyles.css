@@ -38,3 +38,6 @@ border-radius: 7px !important;
     float: left;
     position: absolute;
 }
+.table{
+    background-color:rgba(0,0,0,0.3)
+}

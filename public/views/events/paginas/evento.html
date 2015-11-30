@@ -31,9 +31,30 @@
                              <div class="col-md-3">
                                     <div  ng-repeat="(key, value) in value.imagen" >
                                       <div ng-if="$first">
+                                        <div ng-show="isImage(value.directorio)">
                                         <a href="{{value.directorio}}" >
-                                          <img src="{{value.directorio}}"  style="height:140px;width:140px" class="media-object img-circle">
-                                        </a>
+                                        <img ngf-src="value.directorio" style="height:140px;width:140px" class="media-object img-circle" alt="" ></a><br>
+                                        </div>
+                                        <div ng-show="isOffice(value.directorio)">
+                                        <a href="{{value.directorio}}" >
+                                        <img src="{{getTypeOffice(value.directorio)}}" style="height:140px;width:140px" class="media-object img-circle" alt="" >
+                                        </a><br>
+                                        </div>
+                                        <div ng-show="isVideo(value.directorio)">
+                                        
+                                        <video controls ngf-src="value.directorio"  style="height:140px;width:140px" class="media-object img-circle"></video>
+                                        <br>
+                                        </div>
+                                        <div ng-show="isCompress(value.directorio)">
+                                        <a href="{{value.directorio}}" >
+                                        <img src="images/office/compress.png" style="height:140px;width:140px" class="media-object img-circle" alt="">
+                                        </a><br>
+                                        </div>
+                                        <div ng-show="isPdf(value.directorio)">
+                                        <a href="{{value.directorio}}" target="_blank">
+                                        <img src="images/office/pdf.png" style="height:140px;width:140px" class="media-object img-circle" alt="" ></a><br>
+                                        </div>
+                  
                                       </div>
                                     </div>
                                   </div>
