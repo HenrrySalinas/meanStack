@@ -153,21 +153,16 @@ angular.module('app', ['ngResource','ui.router','ngSanitize','ngFileUpload','ngT
                 templateUrl:'views/Convocatorias/edit.html',
                 controller:'updateConvocatoriaCtrl'
             })
-            
-        
-        
-        .state('convocatorias',{
-                url:'/convocatoria',
-                views:{
-                    'header':{templateUrl: 'views/home/headerHome.html'},
-                    'content':{
-                        templateUrl:'views/convocatorias/convocatoria.html',
-                        controller:'loginCtrl'
-                    },
-                    'footer':{templateUrl: 'views/home/footerHome.html'}
-                }
+            .state('home.partialConvocatoria',{
+                url:'/convocatorias',
+                templateUrl:'views/convocatorias/paginas/convocatoria.html',
+                controller:'partialConvocatoriaCtrl'
             })
-        
+            .state('home.convocatoria',{
+                url:'/convocatoria/:id',
+                templateUrl:'views/convocatorias/paginas/A_convocatoria.html',
+                controller:'vistaConvocatoriaCtrl'
+            })
             /********************END CONVOCATORIAS STATES***********************/
             
             /********************BEGIN GALERIA***********************/

@@ -1,14 +1,119 @@
 <div class="form">
 <h3>{{lblTitle}}</h3>
-   <form role="form" ng-submit="updateConvocatoria()">
-    <div class="form-group">
+   <form role="form" name="form">
+    <div class="form-group col-md-6">
     <label for="titulo">Titulo:</label>
     <input type="text" class="form-control" id="titulo" ng-model="Convocatoria.titulo">
-  </div>
-    <div class="form-group">
+    </div>
+    <div class="form-group col-md-3">
     <label for="fecha">Fecha:</label>
       <input type="text" class="form-control" id="fecha" value="{{Convocatoria.fecha | date:'MM/dd/yyyy'}}" ng-model="Convocatoria.fecha" >
     </div>
+    <div class="row" >
+      <div ng-repeat="(key, value) in imagenes" class="cardFile">
+        
+          
+          <div ng-show="isImage(value.directorio)">
+          <a href="{{value.directorio}}" >
+          <img ngf-src="value.directorio" class="fileApp" alt="" ></a><br>
+            <div class="btnEliminarImg">
+              <button class= "btn btn-danger btn-cancel" ng-click="eliminarImagen(value._id,value.directorio)">Eliminar</button> 
+            </div>
+          </div>
+          <div ng-show="isOffice(value.directorio)">
+          <a href="{{value.directorio}}" >
+          <img src="{{getTypeOffice(value.directorio)}}" class="fileApp" alt="" >
+          </a><br>
+            <div class="btnEliminarImg">
+              <button class= "btn btn-danger btn-cancel" ng-click="eliminarImagen(value._id,value.directorio)">Eliminar</button> 
+            </div>
+          </div>
+          <div ng-show="isVideo(value.directorio)">
+          <a href="{{value.directorio}}" target="_blank">
+          <video controls ngf-src="value.directorio"  class="fileApp"></video>
+          </a><br>
+            <div class="btnEliminarImg">
+              <button class= "btn btn-danger btn-cancel" ng-click="eliminarImagen(value._id,value.directorio)">Eliminar</button> 
+            </div>
+          </div>
+          <div ng-show="isCompress(value.directorio)">
+          <a href="{{value.directorio}}" >
+          <img src="images/office/compress.png" class="fileApp" alt="">
+          </a><br>
+            <div class="btnEliminarImg">
+              <button class= "btn btn-danger btn-cancel" ng-click="eliminarImagen(value._id,value.directorio)">Eliminar</button> 
+            </div>
+          </div>
+          <div ng-show="isPdf(value.directorio)">
+          <a href="{{value.directorio}}" target="_blank">
+          <img src="images/office/pdf.png" class="fileApp" alt="" ></a><br>
+            <div class="btnEliminarImg">
+              <button class= "btn btn-danger btn-cancel" ng-click="eliminarImagen(value._id,value.directorio)">Eliminar</button> 
+            </div>
+          </div>
+          
+        
+      </div>
+    </div>
+    
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label for="archivosEvento" >Agregar Imagen/Archivo:</label>
+            <input type="file" class="form-control" ngf-select ng-model="archivosConvocatoria" ngf-multiple="true"  name="archivosConvocatoria"/>
+        </div>
+    </div>
+    Imagenes/Archivos cargados:<br>
+   
+    <div class="row" >
+      <div ng-repeat="value in archivosConvocatoria track by $index" class="cardFile">
+        
+          
+          <div ng-show="isImage(value.name)">
+          <a href="{{value}}" >
+          <img ngf-src="value" class="fileApp" alt="" ></a><br>
+            <div class="btnEliminarImg">
+              <button class= "btn btn-warning btn-cancel" 
+                ng-click="quitarImagen($index)">Cancelar</button> 
+            </div>
+          </div>
+          <div ng-show="isOffice(value.name)">
+          <a href="{{value.name}}" >
+          <img src="{{getTypeOffice(value.name)}}" class="fileApp" alt="" >
+          </a><br>
+            <div class="btnEliminarImg">
+              <button class= "btn btn-warning btn-cancel" 
+                ng-click="quitarImagen($index)">Cancelar</button>
+            </div>
+          </div>
+          <div ng-show="isVideo(value.name)">
+          <a href="{{value.name}}" target="_blank">
+          <video controls ngf-src="value.name"  class="fileApp"></video>
+          </a><br>
+            <div class="btnEliminarImg">
+              <button class= "btn btn-warning btn-cancel" 
+                ng-click="quitarImagen($index)">Cancelar</button>
+            </div>
+          </div>
+          <div ng-show="isCompress(value.name)">
+          <a href="{{value.name}}" >
+          <img src="images/office/compress.png" class="fileApp" alt="">
+          </a><br>
+            <div class="btnEliminarImg">
+              <button class= "btn btn-warning btn-cancel" 
+                ng-click="quitarImagen($index)">Cancelar</button>
+            </div>
+          </div>
+          <div ng-show="isPdf(value.name)">
+          <a href="{{value.name}}" target="_blank">
+          <img src="images/office/pdf.png" class="fileApp" alt="" ></a><br>
+            <div class="btnEliminarImg">
+              <button class= "btn btn-warning btn-cancel" 
+                ng-click="quitarImagen($index)">Cancelar</button>
+            </div>
+          </div>
+          
+        
+      </div>        
   <div class="form-group">
     <label for="descripcion">Descripcion:</label>
       <!--<textarea id="descripcion" class="form-control" ng-model="Convocatoria.descripcion" style="height:300px;"></textarea>-->
@@ -16,7 +121,7 @@
     </div>
    
     <div class="row">
-        <button type="submit" class="btn btn-success">{{btnGuardar}}</button>
+        <button type="submit" class="btn btn-success" ng-click="updateConvocatoria()">{{btnGuardar}}</button>
     </div>
   
 </form>

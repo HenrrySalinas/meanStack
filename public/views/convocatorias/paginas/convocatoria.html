@@ -1,0 +1,88 @@
+<h2>&nbsp;</h2>
+
+<section class="sep-top-2x sep-bottom-2x">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-md-push-3">
+                <div class="icon-box icon-xs sep-bottom-xs" >
+                     
+                     <div class="icon-box-content" >   
+                    <div class="row eventCard" ng-repeat="(key, value) in listaConvocatorias"  >
+                        <div class="icon-content img-circle"><i class="fa fa-lightbulb-o"></i></div>
+                        <a ui-sref="home.convocatoria({id:value._id})" title="{{value.titulo | lowercase}}" style="box-shadow:5px 1px 1px #000">
+                            <div class="col-md-6 col-md-offset-1" >
+                                <h6>{{value.titulo | uppercase}}</h6>
+
+                                <div class="span5">
+                                <h6 class="media-heading">{{value.fecha | date : "MM/dd/yyyy"}}</h6>
+                                <hr>
+                                        
+                                 <p class="lead" ng-bind-html="(value.descripcion | limitTo: Limit) +'...'"></p>
+                                        <a class="btn btn-primary btn-xs" ui-sref="home.convocatoria({id:value._id})">Leer Mas</a>
+                                </div>
+                            </div>
+                             <div class="col-md-3">
+                                    <div  ng-repeat="(key, value) in value.imagen" >
+                                      <div ng-if="$first">
+                                        <a href="{{value.directorio}}" >
+                                          <img src="{{value.directorio}}"  style="height:140px;width:140px" class="media-object img-circle">
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                            
+                        </a>	
+                        </div>
+                    </div>
+                </div>
+                
+                
+              
+             
+             
+            </div>
+              
+              
+              <aside id="sidebar" role="complementary" class="col-md-3 col-md-pull-9 sep-top-md sidebar">
+              <!-- start sidebar-->
+              <h5 class="widget-title upper sep-bottom-xs">Convocatorias</h5>
+              <ul class="widget widget-media rounded sep-bottom-lg">
+                <li class="media media-bordered clearfix"><a href="#" class="pull-left"><img src="img/afiche1.jpg" alt="" class="media-object img-circle"></a>
+                  <div class="media-body">
+                    <h6 class="media-heading"><a href="#">Campeonato de Colegios de Chimore</a></h6><small>Noviembre 28, 2015</small>
+                  </div>
+                </li>
+                <li class="media media-bordered clearfix"><a href="#" class="pull-left"><img src="img/afiche2.jpg" alt="" class="media-object img-circle"></a>
+                  <div class="media-body">
+                    <h6 class="media-heading"><a href="#">Concurso de bandas colegiales</a></h6><small>Diciembre 10, 2015</small>
+                  </div>
+                </li>
+                <li class="media media-bordered clearfix"><a href="#" class="pull-left"><img src="img/S9.jpg" alt="" class="media-object img-circle"></a>
+                  <div class="media-body">
+                    <h6 class="media-heading"><a href="#">Actividades para el aniversario de Chimore</a></h6><small>Enero 12, 2016</small>
+                  </div>
+                </li>
+                <li class="media media-bordered clearfix"><a href="#" class="pull-left"><img src="img/S10.jpg" alt="" class="media-object img-circle"></a>
+                  <div class="media-body">
+                    <h6 class="media-heading"><a href="#">Convocatorias varios</a></h6><small>Noviembre 28, 2015</small>
+                  </div>
+                </li>
+              </ul>
+              <h5 class="widget-title upper sep-bottom-xs">Archivos Adjuntos</h5>
+              <ul class="widget widget-cat">
+                <li class="cat-item"><a href="#" class="upper">Descargar Programa de la feria Piscicola</a></li>
+                <li class="cat-item"><a href="#" class="upper">Descargar programa Expotropico</a></li>
+                <li class="cat-item"><a href="#" class="upper">Descargar programa de Aniversario Chimore</a></li>
+                
+              </ul>
+              <!-- end sidebar-->
+            </aside>
+              
+             
+          </div>
+        </div>
+      </section>
+
+
+
+

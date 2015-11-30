@@ -11,6 +11,7 @@ var multipartMiddleware = multipart();
 var multer  = require('multer')
 var upload = multer({ dest: 'uploads/' })
 eventsController = require('./controllers/eventosControllerServer');
+convocatoriaController = require('./controllers/convocatoriaControllerServer');
 /***************************end libs para carga de archivos*********************/
 
 app.use(express.static(__dirname+'/public'));
@@ -19,7 +20,6 @@ app.use(bodyParser.json());
 
 /**************************begin eventos section********************************/
 var eventRoutes = require('./routes/eventService')(app,db,mongojs);
-
 app.post('/apiEvents/uploads', multipartMiddleware, eventsController.uploadFile);
 
 /**************************end eventos section*********************************/
@@ -31,7 +31,7 @@ var noticiaRoutes= require('./routes/noticiaService')(app,db,mongojs);
 
 /**************************begin convocatoria section********************************/
 var galleryRoutes = require('./routes/convocatoriaService')(app,db,mongojs);
-
+app.post('/apiConvocatoria/uploads', multipartMiddleware, convocatoriaController.uploadFile);
 /**************************end convocatoria section*********************************/
 /**************************begin convocatoria section********************************/
 //var contactoService= require('./routes/contactoService')(app,db,mongojs);
@@ -40,3 +40,4 @@ var galleryRoutes = require('./routes/convocatoriaService')(app,db,mongojs);
 
 app.listen(3000);
 console.log('server runing ... port 3000');
+

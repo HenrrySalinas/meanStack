@@ -34,11 +34,7 @@ angular.module('app')
 	      			}
 	      			$state.go('admin.events'); //luego de 1segundo se redirecciona 	
 				},1000);
-				
-				
 			});
-			
-			
 		};
 
 	    $scope.uploadFiles = function(files,id_event) {
@@ -69,9 +65,68 @@ angular.module('app')
 	        });
     	};
     	$scope.quitarImagen = function(index) {
-        	$scope.archivosEvento.splice(index,1);//para eliminar un eliminarEventoento de un array
-        	
+        	$scope.archivosEvento.splice(index,1);
       	}
+      	$scope.isImage=function(url){
+		   	var arr = [ "jpeg", "jpg", "gif", "png" ];
+		   	var ext = url.substring(url.lastIndexOf(".")+1);
+			for (var i = 0; i < arr.length; i++) {
+		   		if(ext==arr[i]){
+		   			return true;
+		   		}
+
+		   	};
+
+		}
+		$scope.isOffice=function(url){
+			var arr=["xlsx","xls","docx","doc","pptx","ppt"];
+		   	var ext = url.substring(url.lastIndexOf(".")+1);
+		   	for (var i = 0; i < arr.length; i++) {
+		   		if(ext==arr[i]){
+		   			return true;
+		   		}
+
+		   	};
+		}
+		$scope.getTypeOffice=function(url){
+			var dir="images/office/";
+			var arr=["xlsx","xls","docx","doc","pptx","ppt","pdf","zip","rar"];
+		   	var ext = url.substring(url.lastIndexOf(".")+1);
+		   	for (var i = 0; i < arr.length; i++) {
+		   		if(ext==arr[i]){
+		   			dir=dir+arr[i]+'.png';
+		   		}
+		   	};
+		   	if (dir=="images/office/") {
+		   		dir=dir+'unknow.png';
+		   	};
+		   	return dir;
+		}
+		$scope.isVideo=function(url){
+		   	var arr = [ "mp4", "flv", "3gp", "wmv" ];
+		   	var ext = url.substring(url.lastIndexOf(".")+1);
+			for (var i = 0; i < arr.length; i++) {
+		   		if(ext==arr[i]){
+		   			return true;
+		   		}
+		   	};
+		}
+		$scope.isCompress=function(url){
+			var arr=["rar","zip","tar"];
+		   	var ext = url.substring(url.lastIndexOf(".")+1);
+		   	for (var i = 0; i < arr.length; i++) {
+		   		if(ext==arr[i]){
+		   			return true;
+		   		}
+
+		   	};
+		}
+		$scope.isPdf=function(url){
+		   	var ext = url.substring(url.lastIndexOf(".")+1);
+	   		if(ext=="pdf"){
+	   			return true;
+	   		}
+		}
 	})
 	.controller('updateEventCtrl', function($scope,$http,$stateParams,$timeout,$state,Upload){
 		var id=$stateParams.id;

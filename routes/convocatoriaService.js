@@ -1,3 +1,4 @@
+var fs = require('fs');
 module.exports = function(app,db,mongojs) {
  
 	app.get('/apiConvocatoria',function(req,res){
@@ -38,5 +39,30 @@ module.exports = function(app,db,mongojs) {
 				res.json(doc);
 				}
 		);
+	});
+	app.put('/apiConvocatoriaGallery/:id',function(req,res){
+		var id_imagen=req.params.id;
+		var id=req.body._id;
+		var directorio=req.body.directorio;
+		
+		db.convocatoria.update({_id:mongojs.ObjectId(id)},
+				{
+					$pull:
+					{
+						"imagen":
+						{
+							"_id":mongojs.ObjectId(id_imagen)
+						}
+										}
+				}
+				,function(err,doc){
+					console.log(doc)
+					res.json(doc);
+				}
+		);
+		fs.unlink('./'+directorio, function (err) {
+		  if (err) throw err;
+		  //console.log('successfully deleted');
+		});
 	});
 }

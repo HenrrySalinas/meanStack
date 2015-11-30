@@ -98,10 +98,15 @@
                             <span class="menu-item">BANNERS</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="dropdown">
                         <a class="sa-side-table" ui-sref="admin.Convocatorias">
                             <span class="menu-item">CONVOCATORIA</span>
                         </a>
+                        <ul class="list-unstyled menu-item">
+                            <li><a ui-sref="admin.Convocatorias">Lista de Convocatorias</a></li>
+                            <li><a ui-sref="admin.ConvocatoriasCreate">Crear nueva convocatoria</a></li>
+
+                        </ul>
                     </li>
                     <li class="dropdown">
                         <a class="sa-side-form" ui-sref="#">
